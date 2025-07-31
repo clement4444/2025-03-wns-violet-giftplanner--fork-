@@ -7,4 +7,4 @@ GifChat est un projet réalisé dans le cadre de la formation CDA de la wild cod
 - [@Evelyne](https://github.com/sonar888)
 - [@Chloe](https://github.com/ChloeNuage)
 - [@Clement](https://github.com/clement4444)
-- [@Wolfgang]()
+- ❔[@Wolfgang](a remplir)
