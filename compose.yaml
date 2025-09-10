@@ -34,6 +34,7 @@ services:
       DB_USER: ${DB_USER}
       DB_HOST: ${DB_HOST}
       JWT_SECRET: ${JWT_SECRET}
+      SERVEUR_PORT: ${SERVEUR_PORT}
 
   database:
     image: postgres

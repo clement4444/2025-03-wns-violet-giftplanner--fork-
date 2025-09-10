@@ -5,10 +5,11 @@ import { buildSchema } from "type-graphql";
 import Welcome from "./resolvers/welcome";
 import dataSource from "./config/db";
 import dotenv from "dotenv";
+import { getVariableEnv } from "./lib/envManager/envManager";
 
 dotenv.config();
 
-const port = Number(process.env.SERVEUR_PORT || 3310);
+const port = getVariableEnv("SERVEUR_PORT", true);
 
 async function startServer() {
     await dataSource.initialize();
