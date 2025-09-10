@@ -8,7 +8,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const port = Number(process.env.PORT || 3310);
+const port = Number(process.env.SERVEUR_PORT || 3310);
 
 async function startServer() {
     // await dataSource.initialize();
