@@ -1,0 +1,38 @@
+name : suppression-automatique-branches-apres-merge
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+
+jobs:
+  delete:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Supprime la branche apres le merge si c'est pas une branche principale
+        if: >
+          github.event.pull_request.head.repo.full_name == github.repository &&
+          startsWith(github.event.pull_request.head.ref, 'US')
+        run: |
+          BRANCH="${{ github.event.pull_request.head.ref }}"
+
+          # pour évité que si il a un / dans le nom de la branche que ça foire
+          ENCODED_BRANCH=$(echo "$BRANCH" | sed 's/\//%2F/g')
+          
+          if [[ "$BRANCH" != "main" && "$BRANCH" != "staging" && "$BRANCH" != "dev" ]]; then
+            if [[ "$BRANCH" =~ ^US[0-9]+$ ]]; then
+              curl -s -X DELETE \
+              -H "Accept: application/vnd.github+json" \
+              -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              https://api.github.com/repos/${{ github.repository }}/git/refs/heads/$ENCODED_BRANCH
+
+              echo "✅ La branche $BRANCH a été supprimée automatiquement"
+            else
+              echo "::warning::Le nom de la branche ne correspond pas a une feature (USX), on ne la supprime pas."
+            fi
+          else
+              echo "::warning::C'est une branche principale, on ne la supprime pas."
+          fi

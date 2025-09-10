@@ -1,0 +1,69 @@
+name: gestion des label automatique
+
+on:
+  pull_request:
+    types: [opened, synchronize, closed, reopened]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  labels:
+    runs-on: ubuntu-latest
+    steps:
+      # Si on reouvre une PR
+      - name: Réouvrir une PR → enlever le label "Fermée"
+        if: github.event.action == 'reopened'
+        uses: actions-ecosystem/action-remove-labels@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          labels: "Fermée"
+      
+      # Si on ferme une PR a la main
+      - name: Label closed
+        if: github.event.action == 'closed' && github.event.pull_request.merged == false
+        run: |
+          gh pr edit ${{ github.event.pull_request.number }} --add-label "Fermée"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      # Géré les labels "En attente de relecture", "Prêt à fusionner" et "Conflit"
+      - name: Ajouter / enlever les labels "Attente review", "Prêt à fusionner" et "Conflit"
+        if: github.event.action != 'closed'
+        run: |
+          STATE=$(gh api repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }} --jq .mergeable_state)
+          echo "mergeable_state=$STATE"
+
+          if [ "$STATE" = "blocked" ]; then
+            gh pr edit ${{ github.event.pull_request.number }} --add-label "Attente review"
+          else
+            gh pr edit ${{ github.event.pull_request.number }} --remove-label "Attente review" || true
+          fi
+
+          if [ "$STATE" = "clean" ]; then
+            gh pr edit ${{ github.event.pull_request.number }} --add-label "fusion ok"
+          else
+            gh pr edit ${{ github.event.pull_request.number }} --remove-label "fusion ok" || true
+          fi
+
+          if [ "$STATE" = "dirty" ]; then
+            gh pr edit ${{ github.event.pull_request.number }} --add-label "Conflit"
+          else
+            gh pr edit ${{ github.event.pull_request.number }} --remove-label "Conflit" || true
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Gérer le label tests échoués
+      # - name: Gérer le label "Tests échoués"
+      #   if: (github.event.action == 'opened' || github.event.action == 'synchronize') && failure()
+      #   uses: actions-ecosystem/action-add-labels@v1
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     labels: "Tests échoués"
+      # - name: Sur mise à jour (synchronize) → remplacer par "Prêt à fusionner" si les checks passent
+      #   if: (github.event.action == 'opened' || github.event.action == 'synchronize') && success()
+      #   uses: actions-ecosystem/action-remove-labels@v1
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     labels: "Tests échoués"
