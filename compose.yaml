@@ -6,11 +6,7 @@ services:
     volumes:
       - ./frontend/src/:/app/src/
     healthcheck:
-      test:
-        [
-          "CMD-SHELL",
-          "curl --fail --request GET --url 'http://frontend:3000' || exit 1",
-        ]
+      test: [ "CMD-SHELL", "curl --fail --request GET --url 'http://frontend:3000' || exit 1" ]
       interval: 10s
       retries: 5
       start_period: 20s
@@ -28,11 +24,7 @@ services:
       database:
         condition: service_healthy
     healthcheck:
-      test:
-        [
-          "CMD-SHELL",
-          'curl --fail --request POST --header ''Content-Type: application/json'' --url ''http://backend:3310'' --data ''{"query":"query { __typename }"}'' || exit 1',
-        ]
+      test: [ "CMD-SHELL", 'curl --fail --request POST --header ''Content-Type: application/json'' --url ''http://backend:3310'' --data ''{"query":"query { __typename }"}'' || exit 1' ]
       interval: 10s
       retries: 5
       start_period: 20s
@@ -41,12 +33,12 @@ services:
       DB_DATABASE: ${DB_DATABASE}
       DB_USER: ${DB_USER}
       DB_HOST: ${DB_HOST}
-      # JWT_SECRET: ${JWT_SECRET}
+      JWT_SECRET: ${JWT_SECRET}
 
   database:
     image: postgres
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -d ${DB_DATABASE} -U ${DB_USER}"]
+      test: [ "CMD-SHELL", "pg_isready -d ${DB_DATABASE} -U ${DB_USER}" ]
       interval: 10s
       retries: 5
       start_period: 20s
@@ -59,7 +51,6 @@ services:
       - 5432:5432
     volumes:
       - ./persist/database:/var/lib/postgresql/data
-
   # gateway:
   #   image: nginx
   #   volumes:

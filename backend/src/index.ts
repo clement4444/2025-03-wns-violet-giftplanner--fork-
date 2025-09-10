@@ -11,7 +11,7 @@ dotenv.config();
 const port = Number(process.env.SERVEUR_PORT || 3310);
 
 async function startServer() {
-    // await dataSource.initialize();
+    await dataSource.initialize();
 
     const schema = await buildSchema({
         resolvers: [Welcome],
