@@ -3,7 +3,7 @@ name: tests-backend
 on: push
 
 jobs:
-    tests-frontend:
+    tests-backend:
         runs-on: ubuntu-latest
         services:
           postgres:
@@ -31,10 +31,11 @@ jobs:
               docker run --rm \
                 --network host \
                 -e DB_HOST=localhost \
-                -e DB_PORT=5432 \
                 -e DB_USER=test \
                 -e DB_PASSWORD=test \
                 -e DB_DATABASE=testdb \
+                -e JWT_SECRET=cleJwt \
+                -e SERVEUR_PORT=3310 \
                 backend-test npm test
 
 
