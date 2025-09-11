@@ -6,4 +6,9 @@ export default class Welcome {
     async welcomeAll() {
         return "Bienvenue dans notre API GraphQL";
     }
+
+    @Query(() => String)
+    async coucou() {
+        return "Bienvenue dans notre API GraphQL";
+    }
 }

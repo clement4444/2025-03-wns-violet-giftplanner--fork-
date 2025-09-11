@@ -28,10 +28,10 @@ class Users extends BaseEntity {
     email: string;
 
     @Column()
-    password: string;
+    password_hashed: string;
 
-    @Column()
-    @Field()
+    @Column({ nullable: true })
+    @Field(() => String, { nullable: true })
     phone_number: string;
 
     @Column()
@@ -53,9 +53,17 @@ class Users extends BaseEntity {
     @Field()
     updatedAt: Date;
 
+    @Column({ default: "lien_image_defaut" })
+    @Field({ nullable: true })
+    image_url: string;
+
     @Column({ default: false })
     @Field()
     isVerified: boolean;
+
+    @Column({ default: false })
+    @Field()
+    isAdmin: boolean;
 }
 
 export default Users;
