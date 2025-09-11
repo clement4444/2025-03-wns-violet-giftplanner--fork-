@@ -26,7 +26,7 @@ jobs:
           - name: créer l'image docker
             run: docker build -t backend-test ./backend
 
-          - name: Run tests in container
+          - name: Fait les tests backend
             run: |
               docker run --rm \
                 --network host \
