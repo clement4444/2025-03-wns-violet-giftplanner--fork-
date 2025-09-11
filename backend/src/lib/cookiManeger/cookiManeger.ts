@@ -12,4 +12,4 @@ const cookieManager = {
 export default cookieManager;
 
 export type { Context, CookieDelOptions, CookieOptions, DureeTemps };
-export { delCookie, setCookie, getCookie };
+export { delCookie, setCookie, getCookie, cookieManager };

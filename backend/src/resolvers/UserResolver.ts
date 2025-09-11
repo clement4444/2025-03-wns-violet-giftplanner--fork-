@@ -7,14 +7,12 @@ import {
     Mutation,
     Query,
     Resolver,
-    UseMiddleware,
 } from "type-graphql";
 import Users from "../entities/Users";
 import argon2 from "argon2";
 import cookieManager from "../lib/cookiManeger/cookiManeger";
-import { createToken } from "../utils/jwtUtils";
+import { createAndSetToken } from "../utils/jwtUtils";
 import type { ContextType } from "../types/context";
-import { RoleMiddleware } from "../middleware/RoleMiddleware";
 
 @InputType()
 class SignupInput {
@@ -45,7 +43,6 @@ class LoginInput {
 
 @Resolver(Users)
 export default class UserResolver {
-    @UseMiddleware(RoleMiddleware())
     @Query(() => [Users])
     async getAllUsers() {
         //récupère tout les utilisateurs
@@ -55,7 +52,6 @@ export default class UserResolver {
         return allUsers;
     }
 
-    @UseMiddleware(RoleMiddleware(true))
     @Query(() => [Users])
     async getAllUsersAdmin() {
         //récupère tout les utilisateurs
@@ -73,7 +69,7 @@ export default class UserResolver {
             throw new Error("Adresse email invalide");
         }
 
-        // Vérif mot de passe minimal (par ex. 6 caractères)
+        // Vérif mot de passe minimal
         if (data.password.length < 6) {
             throw new Error("Mot de passe trop court");
         }
@@ -81,7 +77,6 @@ export default class UserResolver {
         if (data.password.length > 100) {
             throw new Error("Mot de passe trop long");
         }
-
 
         // hash le mot de passe
         const password_hashed = await argon2.hash(data.password);
@@ -91,12 +86,9 @@ export default class UserResolver {
         //sauvegarde le nouvel utilisateur dans la bdd
         await user.save();
 
-        // Crée le token
+        // Crée le token & set le cookie
         const payload = { id: user.id, isAdmin: user.isAdmin };
-        const token = createToken(payload, "7d");
-
-        // set le cookie avec le token
-        cookieManager.setCookie(ctx, "token", token, { maxAge: { d: 7 } });
+        const token = createAndSetToken(ctx, payload);
 
         // return le token;
         return token;
@@ -112,13 +104,9 @@ export default class UserResolver {
         // en cas d'erreur ca crash
         if (!isValid) throw new Error("mot de passe incorrect");
 
-        // Crée le token
+        // Crée le token & set le cookie
         const payload = { id: user.id, isAdmin: user.isAdmin };
-        const token = createToken(payload, "7d");
-
-        // set le cookie avec le token
-        // setCookie(ctx, token);
-        cookieManager.setCookie(ctx, "token", token, { maxAge: { d: 7 } });
+        const token = createAndSetToken(ctx, payload);
 
         // return le token
         return token;

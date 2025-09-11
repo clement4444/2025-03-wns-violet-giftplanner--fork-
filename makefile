@@ -64,6 +64,19 @@ d-log: ## Affiche les logs d'un conteneur spécifique
 	else \
 		echo "❌ Aucun conteneur choisi"; \
 	fi'
+	
+d-bash: ## Ouvre un terminal bash dans un conteneur spécifique
+	@bash -c '\
+	containers=$$(docker ps --format "{{.Names}}"); \
+	echo "Conteneurs disponibles :"; \
+	echo "$$containers"; \
+	echo; \
+	read -e -p "Nom du conteneur : " container; \
+	if [ -n "$$container" ]; then \
+		docker exec -it "$$container" sh; \
+	else \
+		echo "❌ Aucun conteneur choisi"; \
+	fi'
 
 help: ## Affiche la liste des commandes disponibles
 	@grep -E '^[a-zA-Z0-9._-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'

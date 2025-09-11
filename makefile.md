@@ -28,3 +28,7 @@
 -> Affiche la liste des conteneurs disponibles  
 -> Demande le nom du conteneur dont on veut voir les logs  
 -> Option -f pour rester focus sur les logs du conteneur  
+
+`d-bash` : Ouvre un terminal bash dans un conteneur spécifique.  
+-> Affiche la liste des conteneurs en cours d'exécution
+-> Demande le nom du conteneur dans lequel on veut ouvrir un terminal bash
