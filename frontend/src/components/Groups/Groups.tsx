@@ -1,7 +1,7 @@
-import GroupCard from "./GroupCard/GroupCard";
-import data from "./GroupCard/data.json";
+import data from "./data/groups.json";
 import Button from "../utils/Button";
 import Container from "../utils/Container"; 
+import Card from "../utils/Card";
 
 
 export default function Groups() {
@@ -13,13 +13,11 @@ export default function Groups() {
         <Container colour="blue" title="Mes Groupes" button={<Button text="Ajouter un groupe" icon="plus" colour="green" />}>
             {groups.map((group) => {
                     return (
-                        <GroupCard
-                            key={group.id}
-                            id={group.id}
-                            title={group.title}
-                            date={group.date}
-                            participants={group.participants}
-                        />
+                        <Card key={group.id} id={group.id} title={group.title}>
+                            <p className="text-gray-600 text-xs sm:text-sm">
+                                <span> Date limite: {group.date} </span> - <span> {group.participants} participants </span>
+                            </p>
+                        </Card>
                         );
                     })
                 }

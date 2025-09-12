@@ -10,18 +10,18 @@ type ContainerProps = {
 }
 
 export default function Container({ colour, title, button, children }: ContainerProps) {
-    return (
-        <div className={`bg-${colour} p-4 rounded-2xl w-full h-full overflow-auto`}>
-            <div className="flex justify-between items-center mb-4 border-red-500 border pb-2">
-                <Title text={title} />
-                {button}
-            </div>
+  return (
+    <div className={`bg-${colour} p-4 rounded-2xl w-full h-full flex flex-col`}>
+      {/* Header */}
+      <div className="flex justify-between items-center mb-2">
+        <Title text={title} />
+        {button}
+      </div>
 
-  
-            <div className="space-y-4">
-                {children}    
-            </div>
-        </div>
-
-    )
+      {/* Scrollable content */}
+      <div className="flex-1 overflow-y-auto flex flex-col gap-1">
+        {children}
+      </div>
+    </div>
+  );
 }
