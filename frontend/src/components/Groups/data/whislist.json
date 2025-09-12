@@ -2,30 +2,35 @@
   "wishlist": [
   {
     "id": 1,
-    "title": "Wireless Noise-Cancelling Headphones",
+    "img": "papier-theme",
+    "title": "Test",
     "description": "Over-ear headphones with active noise cancellation and 30 hours battery life.",
     "price": 299.99
   },
   {
     "id": 2,
+    "img": "papier-theme",
     "title": "Smart Home Speaker",
     "description": "Voice-controlled smart speaker with premium sound and smart home integration.",
     "price": 129.99
   },
   {
     "id": 3,
+    "img": "papier-theme",
     "title": "Electric Scooter",
     "description": "Lightweight electric scooter with a top speed of 20 mph and foldable design.",
     "price": 499.99
   },
   {
     "id": 4,
+    "img": "papier-theme",
     "title": "Instant Camera",
     "description": "Retro-style instant camera for capturing memories on instant prints.",
     "price": 79.99
   },
   {
     "id": 5,
+    "img": "papier-theme",
     "title": "Yoga Mat Set",
     "description": "Eco-friendly yoga mat with carrying strap, including blocks and a resistance band.",
     "price": 59.99
