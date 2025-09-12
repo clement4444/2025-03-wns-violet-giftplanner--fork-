@@ -23,9 +23,7 @@ export default function Messaging() {
                 
             </div>
             <div id="messages-container">
-                
-            </div>
-            <div id="message-input-container"> 
+             
                 {
                     messages.map((message) => {
                         if (message.align === "left" || message.align === "right") { //TO CHANGE THIS LATER
@@ -33,6 +31,10 @@ export default function Messaging() {
                     }})
                 }
                 
+            </div>
+            <div id="message-input-container" className="mt-auto pt-4">
+                <input type="text" placeholder="Type your message..." className="w-full border-2 border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue" />
+
             </div>
         </div>
 

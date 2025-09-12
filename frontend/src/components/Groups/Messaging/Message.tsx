@@ -1,5 +1,3 @@
-import React from "react";
-
 type MessageProps = {
   text: string;
   avatar?: string;
@@ -19,7 +17,7 @@ export default function Message ({ text, avatar, align = "left" }: MessageProps)
     >
       {/* Avatar */}
       <div className="w-20 h-20 rounded-full overflow-hidden">
-        <img src={`/images/${avatar}`} alt="Profile" width={40} height={40} />
+        <img src={`/images/${avatar}.jpg`} alt="Profile" width={40} height={40} />
       </div>
 
       {/* Message bubble TO DO: make it a component */} 
