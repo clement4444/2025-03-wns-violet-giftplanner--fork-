@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import { UserToken } from "./types/token";
-import cookieManager from "./lib/cookiManeger/cookiManeger";
+import cookieManager from "./lib/cookiManager/cookiManager";
 import { getVariableEnv } from "./lib/envManager/envManager";
 import { StandaloneServerContextFunctionArgument } from "@apollo/server/dist/esm/standalone";
 

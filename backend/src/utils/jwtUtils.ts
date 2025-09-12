@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import ms from "ms";
 import { getVariableEnv } from "../lib/envManager/envManager";
-import cookieManager from "../lib/cookiManeger/cookiManeger";
+import cookieManager from "../lib/cookiManager/cookiManager";
 import type { UserToken } from "../types/token";
 import type { ContextType } from "../types/context";
 

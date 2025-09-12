@@ -10,7 +10,7 @@ import {
 } from "type-graphql";
 import Users from "../entities/Users";
 import argon2 from "argon2";
-import cookieManager from "../lib/cookiManeger/cookiManeger";
+import cookieManager from "../lib/cookiManager/cookiManager";
 import { createAndSetToken } from "../utils/jwtUtils";
 import type { ContextType } from "../types/context";
 

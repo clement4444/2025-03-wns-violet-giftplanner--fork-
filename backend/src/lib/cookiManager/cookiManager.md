@@ -14,8 +14,8 @@ Copier les fichiers du mini framework dans un dossier `lib/cookiManeger/`
 projet/
 └── lib/
     └── cookieManager/
-        ├── cookiManeger.md
-        ├── cookiManeger.ts
+        ├── cookiManager.md
+        ├── cookiManager.ts
         ├── types/
         │   └── cookiLibType.ts
         └── utils/
