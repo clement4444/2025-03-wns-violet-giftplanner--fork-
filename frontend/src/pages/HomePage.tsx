@@ -1,8 +1,8 @@
-import { useQueryQuery } from "../generated/graphql-types";
+import { useGetWelcomeAllQuery } from "../generated/graphql-types";
 import InfoHome from "../components/InfoHome";
 
 const HomePage = () => {
-    const { data, loading, error } = useQueryQuery();
+    const { data, loading, error } = useGetWelcomeAllQuery();
     console.log(data)
 
     return (

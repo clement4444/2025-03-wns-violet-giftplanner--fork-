@@ -15,7 +15,9 @@ const config: CodegenConfig = {
         withHooks: true,    // ✅ Génère les hooks directement importables
         withHOC: false,     // ❌ Ne génère pas les HOC obsolètes
         withComponent: false, // ❌ Ne génère pas les composants React
-        reactApolloVersion: 4, // Indique Apollo Client v3 pour éviter Apollo.useQuery
+        reactApolloVersion: 3, // Indique Apollo Client v3 pour éviter Apollo.useQuery
+        apolloReactCommonImportFrom: "@apollo/client/react",
+        apolloReactHooksImportFrom: "@apollo/client/react",
       },
     },
   },

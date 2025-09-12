@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
-import * as Apollo from '@apollo/client';
+import * as ApolloReactCommon from '@apollo/client/react';
+import * as ApolloReactHooks from '@apollo/client/react';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -73,46 +74,46 @@ export type Users = {
   updatedAt: Scalars['DateTimeISO']['output'];
 };
 
-export type QueryQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetWelcomeAllQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type QueryQuery = { __typename?: 'Query', coucou: string };
+export type GetWelcomeAllQuery = { __typename?: 'Query', welcomeAll: string };
 
 
-export const QueryDocument = gql`
-    query Query {
-  coucou
+export const GetWelcomeAllDocument = gql`
+    query GetWelcomeAll {
+  welcomeAll
 }
     `;
 
 /**
- * __useQueryQuery__
+ * __useGetWelcomeAllQuery__
  *
- * To run a query within a React component, call `useQueryQuery` and pass it any options that fit your needs.
- * When your component renders, `useQueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetWelcomeAllQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetWelcomeAllQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useQueryQuery({
+ * const { data, loading, error } = useGetWelcomeAllQuery({
  *   variables: {
  *   },
  * });
  */
-export function useQueryQuery(baseOptions?: Apollo.QueryHookOptions<QueryQuery, QueryQueryVariables>) {
+export function useGetWelcomeAllQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<GetWelcomeAllQuery, GetWelcomeAllQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<QueryQuery, QueryQueryVariables>(QueryDocument, options);
+        return ApolloReactHooks.useQuery<GetWelcomeAllQuery, GetWelcomeAllQueryVariables>(GetWelcomeAllDocument, options);
       }
-export function useQueryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<QueryQuery, QueryQueryVariables>) {
+export function useGetWelcomeAllLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetWelcomeAllQuery, GetWelcomeAllQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<QueryQuery, QueryQueryVariables>(QueryDocument, options);
+          return ApolloReactHooks.useLazyQuery<GetWelcomeAllQuery, GetWelcomeAllQueryVariables>(GetWelcomeAllDocument, options);
         }
-export function useQuerySuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<QueryQuery, QueryQueryVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<QueryQuery, QueryQueryVariables>(QueryDocument, options);
+export function useGetWelcomeAllSuspenseQuery(baseOptions?: ApolloReactHooks.SkipToken | ApolloReactHooks.SuspenseQueryHookOptions<GetWelcomeAllQuery, GetWelcomeAllQueryVariables>) {
+          const options = baseOptions === ApolloReactHooks.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useSuspenseQuery<GetWelcomeAllQuery, GetWelcomeAllQueryVariables>(GetWelcomeAllDocument, options);
         }
-export type QueryQueryHookResult = ReturnType<typeof useQueryQuery>;
-export type QueryLazyQueryHookResult = ReturnType<typeof useQueryLazyQuery>;
-export type QuerySuspenseQueryHookResult = ReturnType<typeof useQuerySuspenseQuery>;
-export type QueryQueryResult = Apollo.QueryResult<QueryQuery, QueryQueryVariables>;
+export type GetWelcomeAllQueryHookResult = ReturnType<typeof useGetWelcomeAllQuery>;
+export type GetWelcomeAllLazyQueryHookResult = ReturnType<typeof useGetWelcomeAllLazyQuery>;
+export type GetWelcomeAllSuspenseQueryHookResult = ReturnType<typeof useGetWelcomeAllSuspenseQuery>;
+export type GetWelcomeAllQueryResult = ApolloReactCommon.QueryResult<GetWelcomeAllQuery, GetWelcomeAllQueryVariables>;

@@ -1,13 +1,22 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router";
-import "./index.css";
+import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
+import { ApolloProvider } from "@apollo/client/react";
 import App from "./App.tsx";
+import "./index.css";
+
+const client = new ApolloClient({
+  link: new HttpLink({ uri: import.meta.env.VITE_API_URL }),
+  cache: new InMemoryCache(),
+});
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>
     </BrowserRouter>
   </StrictMode>
 );

@@ -34,8 +34,8 @@ import { gql } from '@apollo/client';
 //   }
 // `;
 
-export const GET_COUCOU = gql`
-  query Query {
-    coucou
+export const WELCOME_ALL = gql`
+  query GetWelcomeAll {
+    welcomeAll
   }
 `;
