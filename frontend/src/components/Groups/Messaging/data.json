@@ -1,0 +1,24 @@
+{
+    "messages" :[
+  { "text": "Hey, how are you doing?", "avatar": "avatar1", "align": "left" },
+  { "text": "I’m good, thanks! How about you?", "avatar": "avatar2", "align": "right" },
+  { "text": "Pretty good, just working on a project.", "avatar": "avatar1", "align": "left" },
+  { "text": "Nice! What kind of project?", "avatar": "avatar2", "align": "right" },
+  { "text": "It’s a small web app for tracking tasks.", "avatar": "avatar1", "align": "left" },
+  { "text": "That sounds useful. Are you building it in React?", "avatar": "avatar2", "align": "right" },
+  { "text": "Yeah, React with TypeScript.", "avatar": "avatar1", "align": "left" },
+  { "text": "Cool! Are you using Tailwind too?", "avatar": "avatar2", "align": "right" },
+  { "text": "Of course, Tailwind makes styling so much faster.", "avatar": "avatar1", "align": "left" },
+  { "text": "Agreed. I love the utility classes.", "avatar": "avatar2", "align": "right" },
+  { "text": "Do you use shadcn components as well?", "avatar": "avatar1", "align": "left" },
+  { "text": "Yes! They save so much time.", "avatar": "avatar2", "align": "right" },
+  { "text": "I know, right? The cards and buttons are super clean.", "avatar": "avatar1", "align": "left" },
+  { "text": "Exactly. And you can customize them easily.", "avatar": "avatar2", "align": "right" },
+  { "text": "How’s your project timeline looking?", "avatar": "avatar1", "align": "left" },
+  { "text": "Pretty good, I should finish by next week.", "avatar": "avatar2", "align": "right" },
+  { "text": "That’s awesome! Can’t wait to see it.", "avatar": "avatar1", "align": "left" },
+  { "text": "I’ll share the repo once it’s ready.", "avatar": "avatar2", "align": "right" },
+  { "text": "Perfect, looking forward to it!", "avatar": "avatar1", "align": "left" },
+  { "text": "Thanks, I’ll keep you posted!", "avatar": "avatar2", "align": "right" }
+]
+}

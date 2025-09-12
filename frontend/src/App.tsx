@@ -11,6 +11,7 @@ import ProvisoirPage from "./pages/ProvisoirPage";
 import Wishlist from "./components/Wishlist";
 
 
+import Dashboard from "./pages/Dashboard";
 const App = () => {
   const { data, loading } = useGetMeProfileQuery();
   const { setUserProfil } = useMyProfilStore();

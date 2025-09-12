@@ -1,0 +1,36 @@
+{
+  "groups": [
+    {
+      "id": 1,
+      "title": "Anniversaire de Marie",
+      "date": "2025-09-30",
+      "participants": 12
+    },
+    {
+      "id": 2,
+      "title": "Noël en famille",
+      "date": "2025-12-24",
+      "participants": 20
+    },
+    {
+      "id": 3,
+      "title": "Cadeau Bébé Laura",
+      "date": "2025-10-15",
+      "participants": 8
+    },
+    {
+      "id": 4,
+      "title": "Pot de départ de Julien",
+      "date": "2025-11-05",
+      "participants": 15
+    },
+    {
+      "id": 5,
+      "title": "Cadeau collectif pour Clara",
+      "date": "2025-09-25",
+      "participants": 10
+    }
+  ]
+}
+
+
