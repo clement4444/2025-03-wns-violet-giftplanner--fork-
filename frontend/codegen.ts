@@ -12,7 +12,10 @@ const config: CodegenConfig = {
         "typescript-react-apollo",
       ],
       config: {
-        withHooks: true,
+        withHooks: true,    // ✅ Génère les hooks directement importables
+        withHOC: false,     // ❌ Ne génère pas les HOC obsolètes
+        withComponent: false, // ❌ Ne génère pas les composants React
+        reactApolloVersion: 4, // Indique Apollo Client v3 pour éviter Apollo.useQuery
       },
     },
   },

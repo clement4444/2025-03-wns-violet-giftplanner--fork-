@@ -1,9 +1,13 @@
-
+import { useQueryQuery } from "../generated/graphql-types";
+import InfoHome from "../components/InfoHome";
 
 const HomePage = () => {
+    const { data, loading, error } = useQueryQuery();
+    console.log(data)
+
     return (
         <div>
-            <h1>Le site magique pour ne plus se prendre la tête pour les cadeaux communs.</h1>
+            <InfoHome />
         </div>
     );
 };

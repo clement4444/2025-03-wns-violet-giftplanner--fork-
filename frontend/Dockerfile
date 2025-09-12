@@ -6,7 +6,9 @@ COPY *.json .
 RUN npm i
 
 COPY vite.config.ts .
-# COPY codegen.ts .
+COPY codegen.ts .
+COPY postcss.config.ts .
+COPY tailwind.config.ts .
 COPY index.html .
 COPY public public 
 COPY src src
