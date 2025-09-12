@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
-import * as ApolloReactCommon from '@apollo/client/react';
-import * as ApolloReactHooks from '@apollo/client/react';
+import * as ApolloReactCommon from '@apollo/client';
+import * as ApolloReactHooks from '@apollo/client';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -74,46 +74,42 @@ export type Users = {
   updatedAt: Scalars['DateTimeISO']['output'];
 };
 
-export type GetWelcomeAllQueryVariables = Exact<{ [key: string]: never; }>;
+export type LoginMutationVariables = Exact<{
+  data: LoginInput;
+}>;
 
 
-export type GetWelcomeAllQuery = { __typename?: 'Query', welcomeAll: string };
+export type LoginMutation = { __typename?: 'Mutation', login: string };
 
 
-export const GetWelcomeAllDocument = gql`
-    query GetWelcomeAll {
-  welcomeAll
+export const LoginDocument = gql`
+    mutation Login($data: LoginInput!) {
+  login(data: $data)
 }
     `;
+export type LoginMutationFn = ApolloReactCommon.MutationFunction<LoginMutation, LoginMutationVariables>;
 
 /**
- * __useGetWelcomeAllQuery__
+ * __useLoginMutation__
  *
- * To run a query within a React component, call `useGetWelcomeAllQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetWelcomeAllQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
+ * To run a mutation, you first call `useLoginMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useLoginMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
  *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
  *
  * @example
- * const { data, loading, error } = useGetWelcomeAllQuery({
+ * const [loginMutation, { data, loading, error }] = useLoginMutation({
  *   variables: {
+ *      data: // value for 'data'
  *   },
  * });
  */
-export function useGetWelcomeAllQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<GetWelcomeAllQuery, GetWelcomeAllQueryVariables>) {
+export function useLoginMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<LoginMutation, LoginMutationVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return ApolloReactHooks.useQuery<GetWelcomeAllQuery, GetWelcomeAllQueryVariables>(GetWelcomeAllDocument, options);
+        return ApolloReactHooks.useMutation<LoginMutation, LoginMutationVariables>(LoginDocument, options);
       }
-export function useGetWelcomeAllLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetWelcomeAllQuery, GetWelcomeAllQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return ApolloReactHooks.useLazyQuery<GetWelcomeAllQuery, GetWelcomeAllQueryVariables>(GetWelcomeAllDocument, options);
-        }
-export function useGetWelcomeAllSuspenseQuery(baseOptions?: ApolloReactHooks.SkipToken | ApolloReactHooks.SuspenseQueryHookOptions<GetWelcomeAllQuery, GetWelcomeAllQueryVariables>) {
-          const options = baseOptions === ApolloReactHooks.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return ApolloReactHooks.useSuspenseQuery<GetWelcomeAllQuery, GetWelcomeAllQueryVariables>(GetWelcomeAllDocument, options);
-        }
-export type GetWelcomeAllQueryHookResult = ReturnType<typeof useGetWelcomeAllQuery>;
-export type GetWelcomeAllLazyQueryHookResult = ReturnType<typeof useGetWelcomeAllLazyQuery>;
-export type GetWelcomeAllSuspenseQueryHookResult = ReturnType<typeof useGetWelcomeAllSuspenseQuery>;
-export type GetWelcomeAllQueryResult = ApolloReactCommon.QueryResult<GetWelcomeAllQuery, GetWelcomeAllQueryVariables>;
+export type LoginMutationHookResult = ReturnType<typeof useLoginMutation>;
+export type LoginMutationResult = ApolloReactCommon.MutationResult<LoginMutation>;
+export type LoginMutationOptions = ApolloReactCommon.BaseMutationOptions<LoginMutation, LoginMutationVariables>;

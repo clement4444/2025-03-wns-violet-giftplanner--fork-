@@ -34,8 +34,8 @@ import { gql } from '@apollo/client';
 //   }
 // `;
 
-export const WELCOME_ALL = gql`
-  query GetWelcomeAll {
-    welcomeAll
+export const LOIGIN = gql`
+  mutation Login($data: LoginInput!) {
+    login(data: $data)
   }
 `;
