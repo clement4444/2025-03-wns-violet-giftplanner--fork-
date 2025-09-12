@@ -1,27 +1,31 @@
 import "reflect-metadata";
+import dotenv from "dotenv";
+import { buildSchema } from "type-graphql";
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
-import { buildSchema } from "type-graphql";
 import Welcome from "./resolvers/welcome";
+import UserResolver from "./resolvers/UserResolver";
 import dataSource from "./config/db";
-import dotenv from "dotenv";
+import { getVariableEnv } from "./lib/envManager/envManager";
+import startServeurContext from "./context";
 
 dotenv.config();
 
-const port = Number(process.env.SERVEUR_PORT || 3310);
+const port = getVariableEnv("SERVEUR_PORT", true);
 
 async function startServer() {
-    // await dataSource.initialize();
+    await dataSource.initialize();
 
     const schema = await buildSchema({
-        resolvers: [Welcome],
+        resolvers: [Welcome, UserResolver],
     });
 
     const apolloServer = new ApolloServer({ schema });
 
     const { url } = await startStandaloneServer(apolloServer, {
         listen: { port },
+        context: startServeurContext
     });
-    console.info("hello Server started on " + url);
+    console.info(`🚀 Serveur démarré sur ${url}`);
 }
 startServer();
