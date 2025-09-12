@@ -11,4 +11,5 @@ COPY index.html .
 COPY public public 
 COPY src src
 
+
 CMD npm run dev
