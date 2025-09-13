@@ -76,7 +76,7 @@ export default class UserResolver {
         return user as Users;
     }
 
-    @Mutation(() => ID)
+    @Mutation(() => Users)
     async signup(@Arg("data") data: SignupInput, @Ctx() ctx: ContextType) {
         // verifie la validité des données
         const emailRegex = /^(?:[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*|"[^\"]*")@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -103,13 +103,13 @@ export default class UserResolver {
 
         // Crée le token & set le cookie
         const payload = { id: user.id, isAdmin: user.isAdmin };
-        const token = createAndSetToken(ctx, payload);
+        createAndSetToken(ctx, payload);
 
         // return le token;
-        return token;
+        return user;
     }
 
-    @Mutation(() => ID)
+    @Mutation(() => Users)
     async login(@Arg("data") data: LoginInput, @Ctx() ctx: ContextType) {
         // essaye de trouver l'utilisateur grace a son mail
         const user = await Users.findOne({ where: { email: data.email } });
@@ -123,18 +123,18 @@ export default class UserResolver {
 
         // Crée le token & set le cookie
         const payload = { id: user.id, isAdmin: user.isAdmin };
-        const token = createAndSetToken(ctx, payload);
+        createAndSetToken(ctx, payload);
 
         // return le token
-        return token;
+        return user;
     }
 
-    @Mutation(() => ID)
+    @Mutation(() => Boolean)
     async logout(@Ctx() ctx: ContextType) {
         // set le cookie vide pour déconnecter l'utilisateur
         cookieManager.delCookie(ctx, "token", { secure: false });
 
-        // return un message de confirmation
-        return `Byebye ${ctx.user?.id}`;
+        // return un boolean de succès
+        return true;
     }
 }

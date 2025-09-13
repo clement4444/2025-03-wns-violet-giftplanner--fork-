@@ -3,8 +3,6 @@ services:
     container_name: frontend-dev
     restart: always
     build: ./frontend
-    ports:
-      - ${FRONTEND_PORT}:${FRONTEND_PORT}
     volumes:
       - ./frontend/src/:/app/src/
     healthcheck:
@@ -18,13 +16,12 @@ services:
     environment:
       VITE_API_URL: ${SERVEUR_URL}
       VITE_API_URL_DOCKER: ${SERVEUR_URL_DOCKER}
+      VITE_MODE: ${MODE}
 
   backend:
     container_name: backend-dev
     restart: always
     build: ./backend
-    ports:
-      - ${SERVEUR_PORT}:${SERVEUR_PORT}
     volumes:
       - ./backend/src/:/app/src/
       - ./backend/public/:/app/public/
@@ -44,6 +41,7 @@ services:
       DB_HOST: ${DB_HOST}
       JWT_SECRET: ${JWT_SECRET}
       SERVEUR_PORT: ${SERVEUR_PORT}
+      MODE: ${MODE}
 
   database:
     container_name: database-dev
@@ -62,11 +60,18 @@ services:
     volumes:
       - ./persist/database:/var/lib/postgresql/data
 
+  gateway:
+    container_name: gateway-dev
+    restart: always
+    image: nginx
+    volumes:
+      - ./nginx.dev.conf:/etc/nginx/nginx.conf
+    ports:
+      - ${GATEWAY_PORT}:80
+
   adminer:
     container_name: adminer-dev
     image: adminer
-    ports:
-      - 8080:8080
     depends_on:
       database:
         condition: service_healthy

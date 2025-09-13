@@ -12,5 +12,20 @@ export default defineConfig({
     host: "0.0.0.0",
     port: 3000,
     allowedHosts: ['frontend'],
+    proxy: {
+      "/api": {
+        target: "http://backend:3310",
+        changeOrigin: true,
+      },
+    },
+    watch: {
+      usePolling: true, // Améliore le hot reloading
+      interval: 200,   // Fréquence de vérification des changements
+    },
+    hmr: {
+      host: "localhost",
+      clientPort: 80,
+      protocol: "ws", // ou "wss" si gateway en HTTPS
+    },
   },
 })

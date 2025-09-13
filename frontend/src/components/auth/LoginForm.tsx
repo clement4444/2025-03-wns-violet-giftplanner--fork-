@@ -1,7 +1,9 @@
 import { useLoginMutation } from "../../generated/graphql-types";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { useMyProfilStore } from "../../zustand/myProfilStore";
 import { Link } from "react-router";
+import consoleErrorDev from "../../hook/erreurMod";
 
 const LoginForm = () => {
     const [form, setForm] = useState({
@@ -10,6 +12,7 @@ const LoginForm = () => {
     });
     const [messageError, setMessageError] = useState("");
     const navigate = useNavigate();
+    const { setUserProfil } = useMyProfilStore();
 
     const [login] = useLoginMutation();
 
@@ -22,17 +25,21 @@ const LoginForm = () => {
 
             // si la connexion a reussi
             if (res.data) {
+                // on met a jour le profil dans le store
+                setUserProfil(res.data.login);
                 // rediriger vers la page d'accueil
-                navigate("/");
+                navigate("/provisoir");
             }
         } catch (err: any) {
             // si c'est une erreur GraphQL
             if (err.graphQLErrors && err.graphQLErrors.length > 0) {
                 // Erreur renvoyée par le serveur
                 setMessageError(err.graphQLErrors[0].message);
+                consoleErrorDev("Erreur GraphQL lors de la connexion :", err.graphQLErrors);
             } else {
                 // Erreur réseau / autre
                 setMessageError("Un problème est survenu, veuillez réessayer plus tard.");
+                consoleErrorDev("Erreur lors de la connexion :", err);
             }
         }
     };

@@ -1,37 +1,36 @@
-import { Route, Routes, Outlet } from "react-router";
+import { useEffect } from "react";
+import { Route, Routes, Outlet, useNavigate } from "react-router";
+import { useGetMeProfileQuery } from "./generated/graphql-types";
+import { useMyProfilStore } from "./zustand/myProfilStore";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import HomePage from "./pages/HomePage";
-import { useEffect, useState } from "react";
-import { useGetMeProfileLazyQuery } from "./generated/graphql-types";
-import { useMyProfilStore } from "./zustand/myProfilStore";
+import LoadingHomePage from "./pages/loadingHomePage/LoadingHomePage";
+import ProvisoirPage from "./pages/ProvisoirPage";
+
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
-  const [getMeProfileQuery, { data }] = useGetMeProfileLazyQuery();
-  const { setUserProfil, userProfil } = useMyProfilStore();
+  const { data, loading } = useGetMeProfileQuery();
+  const { setUserProfil } = useMyProfilStore();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const res = await getMeProfileQuery();
-        console.log(res);
-        if (data) {
-          setUserProfil(data.getMeProfile);
-        } else {
-          setUserProfil(null);
-        }
-      } catch {
-        setUserProfil(null);
-      } finally {
-        setLoading(false);
+    if (data?.getMeProfile) {
+      setUserProfil(data.getMeProfile);
+      // si on était sur une page que on est pas censé étre une foie connecté on redirige vers la page principale
+      if (["/", "/connexion", "/inscription"].includes(window.location.pathname)) {
+        navigate("/provisoir");
       }
-    };
-    checkAuth();
-  }, []);
-  console.log(userProfil);
+    } else if (!loading) {
+      setUserProfil(null);
+      // si on est pas connecté on redirige forcement vers la page de connexion ou d'inscription
+      if (!["/connexion", "/inscription", "/"].includes(window.location.pathname)) {
+        navigate("/");
+      }
+    }
+  }, [data, loading, setUserProfil]);
 
-  if (loading) return <p>Chargement...</p>;
+  if (loading) return <LoadingHomePage />;
 
   return (
     <Routes>
@@ -39,6 +38,7 @@ const App = () => {
         <Route index element={<HomePage />} />
         <Route path="connexion" element={<LoginPage />} />
         <Route path="inscription" element={<RegisterPage />} />
+        <Route path="provisoir" element={<ProvisoirPage />} />
       </Route>
     </Routes>
   );

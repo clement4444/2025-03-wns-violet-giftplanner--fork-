@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router";
 import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
 import { ApolloProvider } from "@apollo/client/react";
+import { ToastContainer } from "react-toastify";
 import App from "./App.tsx";
 import "./index.css";
 
@@ -21,6 +22,7 @@ createRoot(document.getElementById("root")!).render(
     <BrowserRouter>
       <ApolloProvider client={client}>
         <App />
+        <ToastContainer />
       </ApolloProvider>
     </BrowserRouter>
   </StrictMode>
