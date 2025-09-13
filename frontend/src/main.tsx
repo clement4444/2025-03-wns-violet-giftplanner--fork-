@@ -7,8 +7,6 @@ import { ToastContainer } from "react-toastify";
 import App from "./App.tsx";
 import "./index.css";
 
-console.log(import.meta.env.VITE_API_URL);
-
 const client = new ApolloClient({
   link: new HttpLink({
     uri: import.meta.env.VITE_API_URL,

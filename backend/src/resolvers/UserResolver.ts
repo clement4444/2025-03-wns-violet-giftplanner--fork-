@@ -72,7 +72,7 @@ export default class UserResolver {
 
         // si l'utilisateur a été supprimé (ou inexistant)
         if (!user) throw new Error("Utilisateur supprimé");
-        console.log(user);
+
         return user as Users;
     }
 
