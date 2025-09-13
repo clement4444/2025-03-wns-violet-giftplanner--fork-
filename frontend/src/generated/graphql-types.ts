@@ -45,6 +45,7 @@ export type Query = {
   coucou: Scalars['String']['output'];
   getAllUsers: Array<Users>;
   getAllUsersAdmin: Array<Users>;
+  getMeProfile: Users;
   testAdmin: Scalars['String']['output'];
   testUser: Scalars['String']['output'];
   welcomeAll: Scalars['String']['output'];
@@ -80,6 +81,11 @@ export type LoginMutationVariables = Exact<{
 
 export type LoginMutation = { __typename?: 'Mutation', login: string };
 
+export type GetMeProfileQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetMeProfileQuery = { __typename?: 'Query', getMeProfile: { __typename?: 'Users', id: number, firstName: string, lastName: string, email: string, phone_number?: string | null, date_of_birth: string, createdAt: any, updatedAt: any, image_url?: string | null, isVerified: boolean, isAdmin: boolean } };
+
 
 export const LoginDocument = gql`
     mutation Login($data: LoginInput!) {
@@ -112,3 +118,52 @@ export function useLoginMutation(baseOptions?: Apollo.MutationHookOptions<LoginM
 export type LoginMutationHookResult = ReturnType<typeof useLoginMutation>;
 export type LoginMutationResult = Apollo.MutationResult<LoginMutation>;
 export type LoginMutationOptions = Apollo.BaseMutationOptions<LoginMutation, LoginMutationVariables>;
+export const GetMeProfileDocument = gql`
+    query GetMeProfile {
+  getMeProfile {
+    id
+    firstName
+    lastName
+    email
+    phone_number
+    date_of_birth
+    createdAt
+    updatedAt
+    image_url
+    isVerified
+    isAdmin
+  }
+}
+    `;
+
+/**
+ * __useGetMeProfileQuery__
+ *
+ * To run a query within a React component, call `useGetMeProfileQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetMeProfileQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetMeProfileQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetMeProfileQuery(baseOptions?: Apollo.QueryHookOptions<GetMeProfileQuery, GetMeProfileQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetMeProfileQuery, GetMeProfileQueryVariables>(GetMeProfileDocument, options);
+      }
+export function useGetMeProfileLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetMeProfileQuery, GetMeProfileQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetMeProfileQuery, GetMeProfileQueryVariables>(GetMeProfileDocument, options);
+        }
+export function useGetMeProfileSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetMeProfileQuery, GetMeProfileQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GetMeProfileQuery, GetMeProfileQueryVariables>(GetMeProfileDocument, options);
+        }
+export type GetMeProfileQueryHookResult = ReturnType<typeof useGetMeProfileQuery>;
+export type GetMeProfileLazyQueryHookResult = ReturnType<typeof useGetMeProfileLazyQuery>;
+export type GetMeProfileSuspenseQueryHookResult = ReturnType<typeof useGetMeProfileSuspenseQuery>;
+export type GetMeProfileQueryResult = Apollo.QueryResult<GetMeProfileQuery, GetMeProfileQueryVariables>;

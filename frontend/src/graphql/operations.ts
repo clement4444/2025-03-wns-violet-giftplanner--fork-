@@ -1,41 +1,27 @@
 import { gql } from '@apollo/client';
 
-// export const LOGIN_MUTATION = gql`
-//   mutation Login($email: String!, $password: String!) {
-//     login(email: $email, password: $password) {
-//       token
-//       user {
-//         id
-//         firstname
-//         lastname
-//         email
-//         password
-//         date_of_birth
-//         image_url
-//       }
-//     }
-//   }
-// `;
-
-// export const REGISTER_MUTATION = gql`
-//   mutation Register($input: RegisterInput!) {
-//     register(input: $input) {
-//       token
-//       user {
-//         id
-//         firstname
-//         lastname
-//         email
-//         password
-//         date_of_birth
-//         image_url
-//       }
-//     }
-//   }
-// `;
-
+// mutation pour la connexion
 export const LOIGIN = gql`
   mutation Login($data: LoginInput!) {
     login(data: $data)
+  }
+`;
+
+// query pour récupérer le profil de l'utilisateur connecté
+export const GET_ME_PROFILE = gql`
+  query GetMeProfile {
+    getMeProfile {
+      id
+      firstName
+      lastName
+      email
+      phone_number
+      date_of_birth
+      createdAt
+      updatedAt
+      image_url
+      isVerified
+      isAdmin
+    }
   }
 `;

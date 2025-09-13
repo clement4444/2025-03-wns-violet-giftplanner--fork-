@@ -1,7 +1,7 @@
 import { useLoginMutation } from "../../generated/graphql-types";
 import { useState } from "react";
 import { useNavigate } from "react-router";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 const LoginForm = () => {
     const [form, setForm] = useState({
@@ -11,25 +11,29 @@ const LoginForm = () => {
     const [messageError, setMessageError] = useState("");
     const navigate = useNavigate();
 
-    const [login, { error }] = useLoginMutation();
+    const [login] = useLoginMutation();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const result = await login({
+            const res = await login({
                 variables: { data: form },
             });
 
-            if (result.data?.login) {
-                // ex : stocker le token
-                localStorage.setItem("token", result.data.login);
+            // si la connexion a reussi
+            if (res.data) {
+                // rediriger vers la page d'accueil
                 navigate("/");
-            } else {
-                // setMessageError("Email ou mot de passe incorrect");
             }
         } catch (err: any) {
-            console.error("Erreur login :", err);
-            setMessageError(err.message || "Erreur inconnue");
+            // si c'est une erreur GraphQL
+            if (err.graphQLErrors && err.graphQLErrors.length > 0) {
+                // Erreur renvoyée par le serveur
+                setMessageError(err.graphQLErrors[0].message);
+            } else {
+                // Erreur réseau / autre
+                setMessageError("Un problème est survenu, veuillez réessayer plus tard.");
+            }
         }
     };
 
@@ -74,9 +78,9 @@ const LoginForm = () => {
                 {/* Lien vers inscription */}
                 <p className="paragraph-login">
                     Pas encore de compte ?{" "}
-                    {/*
-                    <Link to={"/inscription"} className="link-login">Inscription</Link>
-                    */}
+                    <Link to={"/inscription"} className="link-login">
+                        Inscription
+                    </Link>
                 </p>
             </div>
         </div>

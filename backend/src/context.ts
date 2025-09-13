@@ -7,6 +7,7 @@ import { StandaloneServerContextFunctionArgument } from "@apollo/server/dist/esm
 export default async function startServeurContext({ req, res }: StandaloneServerContextFunctionArgument) {
     let user: string | jwt.JwtPayload | null = null;
     const token = cookieManager.getCookie({ req, res }, "token");
+    console.log("Token trouvé :", token);
 
     if (token) {
         // verify renvoie une string si invalide, un payload si valide
