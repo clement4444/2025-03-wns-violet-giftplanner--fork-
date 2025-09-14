@@ -5,12 +5,13 @@ type ButtonProps = {
   text: string;
   colour?: "blue" | "green" | "red" | "orange" | "yellow";
   icon: IconProps["icon"];
-  children?: React.ReactNode;
 };
 
-export default function Button({ onClick, text, colour = 'green', icon, children }: ButtonProps) {
+export default function Button({ onClick, text, colour = 'green', icon }: ButtonProps) {
+    const bgClass = `bg-${colour} hover:bg-[var(--color-${colour})]`;
+    
     return (
-        <button className={`bg-${colour} text-white px-4 py-2 rounded-lg flex items-center gap-1 hover:bg-${colour}-600`} onClick={onClick}>
+        <button className={`${bgClass} text-white px-4 py-2 rounded-lg flex items-center gap-1`} onClick={onClick}>
             <Icon icon={icon} text={text} />
         </button>
     );
