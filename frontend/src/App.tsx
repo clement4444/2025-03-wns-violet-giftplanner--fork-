@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import HomePage from "./pages/HomePage";
 import LoadingHomePage from "./pages/loadingHomePage/LoadingHomePage";
+import NotFound404Page from "./pages/notFound404Page/NotFound404Page";
 import ProvisoirPage from "./pages/ProvisoirPage";
 
 
@@ -39,6 +40,7 @@ const App = () => {
         <Route path="connexion" element={<LoginPage />} />
         <Route path="inscription" element={<RegisterPage />} />
         <Route path="provisoir" element={<ProvisoirPage />} />
+        <Route path="*" element={<NotFound404Page />} />
       </Route>
     </Routes>
   );

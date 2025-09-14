@@ -63,9 +63,7 @@ services:
   gateway:
     container_name: gateway-dev
     restart: always
-    image: nginx
-    volumes:
-      - ./nginx.dev.conf:/etc/nginx/nginx.conf
+    build: ./gateway
     ports:
       - ${GATEWAY_PORT}:80
 
