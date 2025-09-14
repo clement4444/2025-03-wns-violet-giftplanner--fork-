@@ -9,7 +9,7 @@ export default function Messaging() {
 
     const messages = data.messages
     return (
-        <div id="messaging-container" className="rounded-2xl w-full h-full border-red-500 border-2 border-lg flex flex-col ">
+        <div id="messaging-container" className="rounded-2xl w-[40vw] max-w-[450px] h-full border-red-500 border-4 border-lg flex flex-col ">
             <div id="messaging-header" className=" w-full h-2/12 bg-blue rounded-t-2xl flex-row flex justify-center items-center py-4">
                 <div className="flex flex-col">
                     <Title text="Groupe Anniversaire Mammie Jeannine" />

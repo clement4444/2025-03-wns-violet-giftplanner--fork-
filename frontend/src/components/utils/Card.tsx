@@ -15,7 +15,7 @@ export default function Card({
 }: CardProps) {
   return (
     <div
-      className="flex items-center bg-white rounded-lg p-4 shadow cursor-pointer"
+      className="flex items-center bg-white rounded-lg p-4 mr-4 shadow cursor-pointer"
       onClick={onClick ?? (() => console.log(`Card ${id} clicked`))}
     >
       <img
