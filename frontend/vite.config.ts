@@ -23,9 +23,8 @@ export default defineConfig({
       interval: 200,   // Fréquence de vérification des changements
     },
     hmr: {
-      host: "localhost",
-      clientPort: 80,
-      protocol: "ws", // ou "wss" si gateway en HTTPS
+      port: 3000,
+      path: "/hmr"
     },
   },
 })

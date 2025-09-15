@@ -17,6 +17,7 @@ services:
       VITE_API_URL: ${SERVEUR_URL}
       VITE_API_URL_DOCKER: ${SERVEUR_URL_DOCKER}
       VITE_MODE: ${MODE}
+      CHOKIDAR_USEPOLLING: true
 
   backend:
     container_name: backend-dev
