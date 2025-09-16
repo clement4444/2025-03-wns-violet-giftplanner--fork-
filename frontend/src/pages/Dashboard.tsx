@@ -3,7 +3,7 @@ import Navigation from "../components/Navigation/Navigation";
 
 export default function Dashboard() {
     return (
-        <div className="h-screen w-full flex flex-row py-[1vw] px-[2vw] ">
+        <div className="h-[100vh] min-aspect-[900/600] flex flex-row p-[2vw] m-auto overflow-hidden ">
             {/* Navigation content goes here */}
             <Navigation />
             <Conversations />
