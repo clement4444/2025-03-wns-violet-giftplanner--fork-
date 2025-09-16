@@ -22,7 +22,7 @@ export default function Icon({ icon, text, className }: IconProps) {
   const IconComponent = iconMap[icon];
 
   return (
-    <div className={`flex items-center gap-2 ${className || ""}`}>
+    <div className={`flex items-center gap-1 ${className || ""}`}>
       <IconComponent className="w-5 h-5" />
       {text && <span>{text}</span>}
     </div>

@@ -1,19 +1,25 @@
-import data from "./data/groups.json";
+// import data from "./data/groups.json";
 import Button from "../utils/Button";
 import Container from "../utils/Container"; 
 import Card from "../utils/Card";
+import type { GroupProps } from "../../types/Groups";
+
+type GroupsProps = {
+    groups: GroupProps[];
+    setActiveGroup?: (id: GroupProps["id"]) => void;
+    onClick?: () => void;
+}
 
 
-export default function Groups() {
+export default function Groups({groups, setActiveGroup}: GroupsProps) {
     // Récupération des groupes depuis l'API
-    const groups = data.groups;
 
 
     return (
         <Container colour="blue" title="Mes Groupes" button={<Button text="Ajouter un groupe" icon="plus" colour="green" />}>
             {groups.map((group) => {
                     return (
-                        <Card key={group.id} id={group.id} title={group.title}>
+                        <Card key={group.id} id={group.id} title={group.title} onClick={() => {setActiveGroup && setActiveGroup(group.id)}}>
                             <p className="text-gray-600 text-xs sm:text-sm">
                                 <span> Date limite: {group.date} </span> - <span> {group.participants} participants </span>
                             </p>

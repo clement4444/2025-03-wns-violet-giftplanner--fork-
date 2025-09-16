@@ -8,11 +8,14 @@ type ButtonProps = {
 };
 
 export default function Button({ onClick, text, colour = 'green', icon }: ButtonProps) {
-    const bgClass = `bg-${colour} hover:bg-[var(--color-${colour})]`;
-    
     return (
-        <button className={`${bgClass} text-white p-1 rounded-lg flex items-center gap-1`} onClick={onClick}>
-            <Icon icon={icon} text={text} />
+        <button  
+            className="text-white font-inter-extra-bold text-sm py-1 px-2 rounded-lg flex items-center gap-1 font-medium shadow-md hover:brightness-110 hover:scale-[1.02] active:scale-[0.97] active:brightness-95 transition-all duration-200 ease-in-out"  
+            style={{ backgroundColor: `var(--color-${colour})` }}
+            onClick={onClick}>
+                <Icon icon={icon} text={text} />
         </button>
+
+
     );
 }
