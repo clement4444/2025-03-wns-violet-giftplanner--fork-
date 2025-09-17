@@ -1,13 +1,13 @@
-import { delCookie } from "./utils/delCookie";
-import { setCookie } from "./utils/setCookie";
-import { getCookie } from "./utils/getCookie";
 import type { Context, CookieDelOptions, CookieOptions, DureeTemps } from "./types/cookiLibType";
+import { delCookie } from "./utils/delCookie";
+import { getCookie } from "./utils/getCookie";
+import { setCookie } from "./utils/setCookie";
 
 const cookieManager = {
-    getCookie,
-    setCookie,
-    delCookie
-}
+  getCookie,
+  setCookie,
+  delCookie,
+};
 
 export default cookieManager;
 

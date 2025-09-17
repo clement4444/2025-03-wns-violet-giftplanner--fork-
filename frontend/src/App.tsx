@@ -1,15 +1,14 @@
 import { useEffect } from "react";
-import { Route, Routes, Outlet, useNavigate } from "react-router";
+import { Outlet, Route, Routes, useNavigate } from "react-router";
+import Wishlist from "./components/Wishlist";
 import { useGetMeProfileQuery } from "./generated/graphql-types";
-import { useMyProfilStore } from "./zustand/myProfilStore";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
 import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
 import LoadingHomePage from "./pages/loadingHomePage/LoadingHomePage";
 import NotFound404Page from "./pages/notFound404Page/NotFound404Page";
 import ProvisoirPage from "./pages/ProvisoirPage";
-import Wishlist from "./components/Wishlist";
-
+import RegisterPage from "./pages/RegisterPage";
+import { useMyProfilStore } from "./zustand/myProfilStore";
 
 const App = () => {
   const { data, loading } = useGetMeProfileQuery();

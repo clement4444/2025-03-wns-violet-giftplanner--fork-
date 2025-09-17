@@ -4,7 +4,8 @@
   "description": "GifChat",
   "main": "index.js",
   "scripts": {
-    "prepare": "husky"
+    "prepare": "husky",
+    "lint": "biome check"
   },
   "author": "",
   "license": "ISC",
@@ -12,10 +13,5 @@
     "@biomejs/biome": "^2.2.4",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.6"
-  },
-  "lint-staged": {
-    "*.{js,ts,tsx,json,css}": [
-      "biome check --apply"
-    ]
   }
 }
