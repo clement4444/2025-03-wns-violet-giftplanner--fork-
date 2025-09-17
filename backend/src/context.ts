@@ -15,7 +15,7 @@ export default async function startServeurContext({ req, res }: StandaloneServer
       user = null;
     } else {
       //enlève les info qui ce sont rajouter
-      const { iat, exp, ...userClean } = payload;
+      const { iat: _, exp: __, ...userClean } = payload;
       user = userClean;
     }
   }

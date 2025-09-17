@@ -1,9 +1,5 @@
 import "reflect-metadata";
-import { ApolloServer, ApolloServerPlugin } from "@apollo/server";
-import {
-  ApolloServerPluginLandingPageLocalDefault,
-  ApolloServerPluginLandingPageProductionDefault,
-} from "@apollo/server/plugin/landingPage/default";
+import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import dotenv from "dotenv";
 import { buildSchema } from "type-graphql";
@@ -26,7 +22,7 @@ async function startServer() {
 
   const apolloServer = new ApolloServer({
     schema,
-    introspection: mode === "dev" ? true : false, // désactive la liste des query &m utation en dehors de dev
+    introspection: mode === "dev", // désactive la liste des query &m utation en dehors de dev
   });
 
   const { url } = await startStandaloneServer(apolloServer, {

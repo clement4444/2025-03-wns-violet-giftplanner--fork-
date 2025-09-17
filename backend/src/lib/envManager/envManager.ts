@@ -59,7 +59,7 @@ export function getVariableEnv(variableEnvName: VariableEnvListeType, isNomber?:
   if (isNomber) {
     const envValueNumber = Number(envValue);
     // si la valeur n'est pas un nombre, lance une erreur
-    if (isNaN(envValueNumber)) {
+    if (Number.isNaN(envValueNumber)) {
       throw new Error(`🚨 Variable d'environnement ${variableEnvName} n'est pas un nombre valide`);
     }
     return envValueNumber;

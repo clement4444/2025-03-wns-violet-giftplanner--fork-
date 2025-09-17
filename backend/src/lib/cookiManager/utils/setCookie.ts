@@ -1,5 +1,5 @@
 import * as cookie from "cookie";
-import type { Context, CookieOptions, DureeTemps } from "../types/cookiLibType";
+import type { Context, CookieOptions } from "../types/cookiLibType";
 
 function getTimeInSeconds(optionMaxAge: CookieOptions["maxAge"]): number | undefined {
   if (!optionMaxAge) return undefined;

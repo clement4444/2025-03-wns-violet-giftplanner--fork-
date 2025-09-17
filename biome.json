@@ -30,7 +30,15 @@
         "noExplicitAny": "off"
       },
       "correctness": {
-        "useExhaustiveDependencies": "off"
+        "useExhaustiveDependencies": "off",
+        "noUnusedImports": {
+          "options": {},
+          "level": "error",
+          "fix": "safe"
+        }
+      },
+      "complexity": {
+        "noBannedTypes": "off"
       }
     }
   },
