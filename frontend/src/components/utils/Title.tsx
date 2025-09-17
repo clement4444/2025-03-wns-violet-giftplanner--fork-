@@ -1,5 +1,10 @@
-export default function Title ({ text }: { text: string }) {
+type TitleProps = {
+    text: string,
+    className?: string
+}
+
+export default function Title ({ text, className }: TitleProps) {
     return (
-        <h1 className="text-white font-poppins-extre-bold">{text}</h1>
+        <h1 className={`text-white font-poppins-extre-bold ${className}`}>{text}</h1>
     )
 }

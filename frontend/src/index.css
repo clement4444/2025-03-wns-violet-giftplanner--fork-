@@ -89,3 +89,20 @@
   }
 
 }
+
+  /* Works for webkit browsers */
+::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-light-grey rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-grey rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-grey;
+}

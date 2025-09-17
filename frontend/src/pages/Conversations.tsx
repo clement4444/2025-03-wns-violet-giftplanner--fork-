@@ -33,8 +33,11 @@ export default function Conversations() {
 
   const [whislist, setWishlist] = React.useState(true);
 
+  
+
+
   return (
-    <div className="flex flex-row h-full justify-around w-full ">
+    <div className="flex flex-row h-full justify-around w-full relative ">
       {/* Left Column */}
       <div className="flex flex-col mx-[2vw] h-full min-h-0 justify-between">
         
@@ -42,48 +45,25 @@ export default function Conversations() {
           <Groups groups={myGroups} setActiveGroup={setActiveGroupId}/>
         </div>
 
-        <div className="h-1/2 flex flex-col ">
-          <div className="flex flex-row gap-2 pb-2">
-            <Button text="Wishlist" icon="heart" colour="orange" onClick={() => {setWishlist(true)}} />
-            <Button text="Cagnotte" icon="dollar" colour="yellow" onClick={() => {setWishlist(false)}}/>
-        </div>
-
-        <div className="h-full flex ">
-          {activeGroup && (
-                whislist 
-                  ? <Wishlist wishlistItems={activeGroup.wishlist} /> 
-                  : <PiggyBank pot={activeGroup.fund} />
-              )}  
-        </div>
-
-        </div>
-
-       
-        
-
-        
-
-        
-
-       
-        {/* <div className="h-[calc(50%-2rem)] flex pb-4 border-4 border-blue-700 ">
-          <div className=" flex flex-col border-4 border-black-700 ">
-           
-            <div className="flex flex-row gap-2 border-4 border-red-700">
+        <div className="flex flex-row gap-2 pb-2 absolute top-[calc(50%)]">
               <Button text="Wishlist" icon="heart" colour="orange" onClick={() => {setWishlist(true)}} />
               <Button text="Cagnotte" icon="dollar" colour="yellow" onClick={() => {setWishlist(false)}}/>
-            </div>
+        </div>
 
-            <div className="h-full border-4 border-red-700">
-              {activeGroup && (
-                whislist 
-                  ? <Wishlist wishlistItems={activeGroup.wishlist} /> 
-                  : <PiggyBank pot={activeGroup.fund} />
-              )}   
-            </div>
-          </div>
-        </div> */}
+        <div className="h-[calc(50%-2rem)] flex pt-2">
+          {activeGroup && (
+                  whislist 
+                    ? <Wishlist wishlistItems={activeGroup.wishlist} /> 
+                    : <PiggyBank pot={activeGroup.fund} />
+                )} 
+        </div>
+
+        
+
+         
+
       </div>
+
 
       {/* Right Column */}
       <div className="flex flex-1 w-1/2 h-full  mt-0 overflow-y-auto justify-center">
@@ -101,3 +81,7 @@ export default function Conversations() {
   );
 }
 
+{/* <div className="flex flex-row gap-2 pb-2">
+              <Button text="Wishlist" icon="heart" colour="orange" onClick={() => {setWishlist(true)}} />
+              <Button text="Cagnotte" icon="dollar" colour="yellow" onClick={() => {setWishlist(false)}}/>
+          </div> */}

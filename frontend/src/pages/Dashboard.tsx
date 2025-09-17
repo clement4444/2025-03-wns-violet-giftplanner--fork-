@@ -16,6 +16,4 @@ export default function Dashboard() {
 }
 
 // TO DO:
-// - whislist alignment
-// - fix look cagnotte
-// - fix scrollbar
+// - fix responsive
