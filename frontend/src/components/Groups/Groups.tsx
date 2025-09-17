@@ -12,15 +12,12 @@ type GroupsProps = {
 
 
 export default function Groups({groups, setActiveGroup}: GroupsProps) {
-    // Récupération des groupes depuis l'API
-
-
     return (
-        <Container colour="blue" title="Mes Groupes" button={<Button text="Ajouter un groupe" icon="plus" colour="green" />}>
+        <Container colour="blue" title="Mes Groupes" button={<Button text={"Ajouter un groupe"} icon="plus" colour="green" />}>
             {groups.map((group) => {
                     return (
                         <Card key={group.id} id={group.id} title={group.title} onClick={() => {setActiveGroup && setActiveGroup(group.id)}}>
-                            <p className="text-gray-600 text-xs sm:text-sm">
+                            <p className="text-gray-600 text-sm sm:text-base truncate overflow-hidden text-ellipsis whitespace-nowrap">
                                 <span> Date limite: {group.date} </span> - <span> {group.participants} participants </span>
                             </p>
                         </Card>
