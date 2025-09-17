@@ -23,7 +23,7 @@ export default function Icon({ icon, text, className }: IconProps) {
 
   return (
     <div className={`flex items-center gap-1 ${className || ""}`}>
-      <IconComponent className="w-5 h-5" />
+      <IconComponent className="w-5 aspect-[1/1]" />
       {text && <span>{text}</span>}
     </div>
   );

@@ -10,22 +10,27 @@ export default function Message ({ text, avatar, align = "left" }: MessageProps)
   const isLeft = align === "left";
 
   return (
-    <div className={`flex items-start gap-2 my-2 ${isLeft ? "flex-row" : "flex-row-reverse"}`}>
-      {/* Avatar */}
-      <div className="w-20 h-20 rounded-full ">
-        <img src={`/images/${avatar}.jpg`} alt="Profile" className="h-12 w-12 rounded-full object-cover mr-4"/>
-      </div>
+    <div className={`flex items-end my-2  ${isLeft ? "flex-row" : "flex-row-reverse"}`}>
+      <div className={`flex  ${isLeft ? "flex-row" : "flex-row-reverse"}`}>
+        {/* Avatar */}
+        <div className= {`flex ${isLeft ? "justify-start" : "justify-end"} w-15 h-15 rounded-full `} >
+          <img src={`/images/${avatar}.jpg`} alt="Profile" className=" rounded-full object-cover "/>
+        </div>
 
-      {/* Message bubble TO DO: make it a component */} 
-      <div
-        className={`max-w-xs px-4 py-2 rounded-2xl ${
-          isLeft
-            ? "bg-grey rounded-bl-none"
-            : "bg-light-grey rounded-br-none"
-        }`}
-      >
-        {text}
-      </div> 
+        {/* Message bubble TO DO: make it a component */} 
+        <div
+          className={`max-w-xs px-4 py-2 mt-[3rem] rounded-2xl ${
+            isLeft
+              ? "bg-grey rounded-tl-none "
+              : "bg-light-grey rounded-tr-none "
+          }`}
+        >
+          {text}
+        </div> 
+
+      </div>
+      
+      
     </div>
   );
 };
