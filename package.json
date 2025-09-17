@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "prepare": "husky",
-    "lint": "biome check --error-on-warnings"
+    "husky-lint": "biome check --error-on-warnings",
+    "lint": "biome check .",
+    "lint-fix": "biome check --write ."
   },
   "author": "",
   "license": "ISC",
