@@ -1,28 +1,36 @@
 import "reflect-metadata";
-import { ApolloServer } from "@apollo/server";
-import { startStandaloneServer } from "@apollo/server/standalone";
-import { buildSchema } from "type-graphql";
-import Welcome from "./resolvers/welcome";
-import WishlistResolver from "./resolvers/wishlist";
-import dataSource from "./config/db";
 import dotenv from "dotenv";
+import { buildSchema } from "type-graphql";
+import { ApolloServer } from "@apollo/server";
+import { ApolloServerPluginLandingPageLocalDefault, ApolloServerPluginLandingPageProductionDefault } from "@apollo/server/plugin/landingPage/default";
+import { ApolloServerPlugin } from "@apollo/server";
+import { startStandaloneServer } from "@apollo/server/standalone";
+import resolverIndex from "./resolversIndex";
+import dataSource from "./config/db";
+import { getVariableEnv } from "./lib/envManager/envManager";
+import startServeurContext from "./context";
 
 dotenv.config();
 
-const port = Number(process.env.SERVEUR_PORT || 3310);
+const port = getVariableEnv("SERVEUR_PORT", true);
+const mode = getVariableEnv("MODE")
 
 async function startServer() {
-    // await dataSource.initialize();
+    await dataSource.initialize();
 
     const schema = await buildSchema({
-        resolvers: [Welcome, WishlistResolver],
+        resolvers: resolverIndex,
     });
 
-    const apolloServer = new ApolloServer({ schema });
+    const apolloServer = new ApolloServer({
+        schema,
+        introspection: mode === "dev" ? true : false, // désactive la liste des query &m utation en dehors de dev
+    });
 
     const { url } = await startStandaloneServer(apolloServer, {
         listen: { port },
+        context: startServeurContext
     });
-    console.info("hello Server started on " + url);
+    console.info(`🚀 Serveur démarré sur ${url}`);
 }
 startServer();
