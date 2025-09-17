@@ -1,4 +1,4 @@
-import { Arg, Mutation, Query, Resolver } from "type-graphql";
+import { Arg, Mutation, Query, Resolver, ID } from "type-graphql";
 import { WishlistItem } from "../types/WishlistItem";
 import { AddWishlistItemInput } from "../inputs/AddWishlistItemInput";
 // generating random IDs for wishlist items, temporarily
@@ -117,4 +117,11 @@ export default class WishlistResolver {
         // newest first
         return WishlistResolver.items;
     }
+
+    // @Mutation(() => ID)
+    // async createWishlistItem(@Arg("data") data: AddWishlistItemInput) {
+    //     const wishlistItem = WishlistItem.create({
+
+    //     })
+    // }
 }
