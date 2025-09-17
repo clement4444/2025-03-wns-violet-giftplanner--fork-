@@ -1,32 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
 
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+/* Chrome, Edge, Safari */
+/* ::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FDFBF6;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 15px;
+  border: 2px solid #FDFBF6;
+} */
+
+/* Firefox */
+* {
+  /* scrollbar-width: thin; */
+}
+
+
+@theme {
+  --color-blue: #292E96;
+  --color-white: #FDFBF6;
+  --color-green: #019645;
+}
+
+@layer utilities {
+  .font-default {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    /* Regular /
+  }
+
+  .font-extra-bold { 
+    font-family: 'Inter', sans-serif;
+    font-weight: 800; / ExtraBold /
+  }
+
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400; / Regular /
+  }
+
+  .font-poppins-extre-bold {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800; / ExtraBold */
+  }
+
+}
+
+.default-background {
+  background-color: #FDFBF6;
+  /* Couleur de fond par défaut */
+}
+
 @layer base {
-    *,
-    *::before,
-    *::after {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-    }
 
-    /* Chrome, Edge, Safari */
-    ::-webkit-scrollbar {
-    width: 8px;
-    }
+  *,
+  *::before,
+  *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
 
-    ::-webkit-scrollbar-track {
-    background: #FDFBF6;
-    }
+  /* For Firefox. */
+  * {
+    scrollbar-width: none;
+  }
 
-    ::-webkit-scrollbar-thumb {
-    border-radius: 15px;
-    border: 2px solid #FDFBF6;
-    }
-
-    /* Firefox */
-    * {
-    scrollbar-width: thin;
-    }
-
-
+  /* For WebKit (Chrome & Safari). */
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
