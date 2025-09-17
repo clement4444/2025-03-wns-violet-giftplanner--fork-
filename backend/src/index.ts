@@ -34,4 +34,3 @@ async function startServer() {
     console.info(`🚀 Serveur démarré sur ${url}`);
 }
 startServer();
-// @ts -expect-error: cors option not typed correctly

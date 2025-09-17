@@ -2,15 +2,11 @@
 
 ## Structure des tests
 ```
-projet/
-└── lib/
-    └── cookieManager/
-        ├── cookiManager.md
-        ├── cookiManager.ts
-        ├── types/
-        │   └── cookiLibType.ts
-        └── utils/
-            ├── delCookie.ts
-            ├── getCookie.ts
-            └── setCookie.ts
+tests/
+├── e2e/
+│   └── UserResolvers.e2e.test.ts
+├── integration/
+│   └── UserResolvers.integration.test.ts
+└── unit/
+    └── UserReolvers.unit.test.ts
 ```

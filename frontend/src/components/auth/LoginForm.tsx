@@ -49,6 +49,10 @@ const LoginForm = () => {
             <h2 className="h2-login">Me connecter</h2>
             <div className="form-login-div">
                 <form className="form-login" onSubmit={handleSubmit}>
+
+                          {messageError.length > 0 ? 
+                          <p className="error-message">{messageError}</p> : null}
+                          
                     {/* Input Pseudo */}
                     <div>
                         <input
@@ -70,8 +74,6 @@ const LoginForm = () => {
                             onChange={(e) => setForm({ ...form, password: e.target.value })}
                         />
                     </div>
-
-                    {messageError.length > 0 ? <p>{messageError}</p> : null}
 
                     {/* Bouton de connexion */}
                     <button

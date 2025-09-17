@@ -1,11 +1,15 @@
+import { Link } from "react-router";
+
 const InfoHome = () => {
   return (
     <div className="infohome-background">
-      <img
-        className="infohome-logo"
-        src="/images/logo-clair.png"
-        alt="Logo"
-      />
+      <Link to={"/"}>
+        <img
+          className="infohome-logo"
+          src="/images/logo-clair.png"
+          alt="Logo"
+        /> 
+      </Link>
       <img
         className="infohome-serpentin"
         src="/images/serpentin-jaune.png"

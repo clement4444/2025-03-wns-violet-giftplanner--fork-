@@ -19,6 +19,24 @@ export const LOIGIN = gql`
   }
 `;
 
+export const SIGNUP = gql`
+    mutation Signup($data: SignupInput!) {
+    signup(data: $data) {
+      createdAt
+      date_of_birth
+      email
+      firstName
+      id
+      image_url
+      isAdmin
+      isVerified
+      lastName
+      phone_number
+      updatedAt
+    }
+  }
+`;
+
 // query pour récupérer le profil de l'utilisateur connecté
 export const GET_ME_PROFILE = gql`
   query GetMeProfile {
