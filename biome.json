@@ -1,0 +1,50 @@
+{
+    "$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
+    "files": {
+        "includes": [
+            "front/src/**/*.{js,ts,tsx,css}",
+            "!front/src/**/generated",
+            "back/src/**/*.{js,ts}"
+        ],
+        "experimentalScannerIgnores": [
+            "node_modules",
+            "dist"
+        ]
+    },
+    "formatter": {
+        "enabled": true,
+        "indentStyle": "space",
+        "indentWidth": 2
+    },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "recommended": true,
+            "suspicious": {
+                "noConsole": {
+                    "level": "error",
+                    "options": {
+                        "allow": [
+                            "assert",
+                            "error",
+                            "info",
+                            "warn"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "assist": {
+        "actions": {
+            "source": {
+                "organizeImports": "on"
+            }
+        }
+    },
+    "javascript": {
+        "parser": {
+            "unsafeParameterDecoratorsEnabled": true
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "gitchat",
+  "version": "1.0.0",
+  "description": "GifChat",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "husky"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.6"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,json,css}": [
+      "biome check --apply"
+    ]
+  }
+}

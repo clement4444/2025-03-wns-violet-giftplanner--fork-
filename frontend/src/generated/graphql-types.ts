@@ -49,6 +49,7 @@ export type Query = {
   testAdmin: Scalars['String']['output'];
   testUser: Scalars['String']['output'];
   welcomeAll: Scalars['String']['output'];
+  wishlistItems: Array<WishlistItem>;
 };
 
 export type SignupInput = {
@@ -72,6 +73,19 @@ export type Users = {
   lastName: Scalars['String']['output'];
   phone_number?: Maybe<Scalars['String']['output']>;
   updatedAt: Scalars['DateTimeISO']['output'];
+};
+
+export type WishlistItem = {
+  __typename?: 'WishlistItem';
+  createdAt: Scalars['DateTimeISO']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  imageUrl?: Maybe<Scalars['String']['output']>;
+  listId?: Maybe<Scalars['String']['output']>;
+  name: Scalars['String']['output'];
+  price?: Maybe<Scalars['Float']['output']>;
+  updatedAt: Scalars['DateTimeISO']['output'];
+  userId?: Maybe<Scalars['String']['output']>;
 };
 
 export type LoginMutationVariables = Exact<{

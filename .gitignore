@@ -5,3 +5,6 @@ persit/
 database/
 
 dist
+
+# pour avoir une liste des tâche a faire qui reste en local
+toodo.md
