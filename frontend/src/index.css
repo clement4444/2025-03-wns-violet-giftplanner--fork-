@@ -55,7 +55,7 @@
 
 
 /* If a colour does not work, hardcode it first */
-@theme {
+@theme inline {
   --color-blue: #292E96;
   --color-white: #FDFBF6;
   --color-orange: #EA4B09;

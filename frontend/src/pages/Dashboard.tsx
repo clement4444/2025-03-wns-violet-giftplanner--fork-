@@ -14,3 +14,8 @@ export default function Dashboard() {
         </div>
     );
 }
+
+// TO DO:
+// - whislist alignment
+// - fix look cagnotte
+// - fix scrollbar

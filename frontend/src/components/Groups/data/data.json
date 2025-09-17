@@ -20,11 +20,11 @@
         { "text": "Sinon un sac à main pourrait aussi lui plaire, elle en parle souvent.", "avatar": "avatar3", "align": "left" },
         { "text": "Bonne idée, mais ça risque d’être un peu cher.", "avatar": "avatar2", "align": "right" },
         { "text": "On peut compléter avec le budget commun, on est 12 participants.", "avatar": "avatar4", "align": "left" },
-        { "text": "Et un parfum ? Elle adore les senteurs élégantes.", "avatar": "avatar5", "align": "right" },
+        { "text": "Et un parfum ? Elle adore les senteurs élégantes.", "avatar": "avatar5", "align": "left" },
         { "text": "Oui, mais j’aime l’idée d’une expérience aussi, comme un cours de cuisine.", "avatar": "avatar1", "align": "left" },
         { "text": "Je la vois bien s’amuser avec ça, elle adore cuisiner.", "avatar": "avatar2", "align": "right" },
         { "text": "Et pourquoi pas une journée spa ? Ça lui ferait du bien.", "avatar": "avatar3", "align": "left" },
-        { "text": "Oh oui, elle en rêve !", "avatar": "avatar5", "align": "right" },
+        { "text": "Oh oui, elle en rêve !", "avatar": "avatar2", "align": "right" },
         { "text": "Alors on garde collier, sac, parfum, cours et spa dans la liste ?", "avatar": "avatar4", "align": "left" },
         { "text": "Parfait, comme ça chacun pourra donner son avis avant de décider.", "avatar": "avatar2", "align": "right" }
       ]
@@ -46,16 +46,16 @@
         { "text": "On met tout pour leur voyage ?", "avatar": "avatar1", "align": "left" },
         { "text": "Oui, ils rêvent de Bali depuis longtemps.", "avatar": "avatar2", "align": "right" },
         { "text": "Sinon un appareil photo pour capturer les souvenirs ?", "avatar": "avatar3", "align": "left" },
-        { "text": "Pas mal, mais ça coûte cher.", "avatar": "avatar1", "align": "right" },
+        { "text": "Pas mal, mais ça coûte cher.", "avatar": "avatar2", "align": "right" },
         { "text": "On est 20, on peut se permettre !", "avatar": "avatar4", "align": "left" },
         { "text": "Et un service de vaisselle ? Ça reste classique mais utile.", "avatar": "avatar2", "align": "right" },
         { "text": "Je pense qu’ils préféreraient quelque chose de plus personnel.", "avatar": "avatar5", "align": "left" },
-        { "text": "Une machine à café ? Ils en boivent tous les jours.", "avatar": "avatar3", "align": "right" },
+        { "text": "Une machine à café ? Ils en boivent tous les jours.", "avatar": "avatar3", "align": "left" },
         { "text": "Bonne idée, ça reste dans leur quotidien.", "avatar": "avatar1", "align": "left" },
-        { "text": "Et un tableau déco pour leur nouvel appart ?", "avatar": "avatar4", "align": "right" },
-        { "text": "Oh oui, ça peut être symbolique aussi.", "avatar": "avatar2", "align": "left" },
-        { "text": "Alors on garde voyage, appareil, vaisselle, machine et tableau ?", "avatar": "avatar5", "align": "right" },
-        { "text": "Oui, ça donne du choix avant le vote final.", "avatar": "avatar3", "align": "left" }
+        { "text": "Et un tableau déco pour leur nouvel appart ?", "avatar": "avatar4", "align": "left" },
+        { "text": "Oh oui, ça peut être symbolique aussi.", "avatar": "avatar2", "align": "right" },
+        { "text": "Alors on garde voyage, appareil, vaisselle, machine et tableau ?", "avatar": "avatar5", "align": "left" },
+        { "text": "Oui, ça donne du choix avant le vote final.", "avatar": "avatar2", "align": "right" }
       ]
     },
     {
@@ -75,15 +75,15 @@
         { "text": "Jean aime les montres, non ?", "avatar": "avatar1", "align": "left" },
         { "text": "Oui, c’est son grand plaisir, bonne idée !", "avatar": "avatar2", "align": "right" },
         { "text": "Mais c’est un gros budget, il faudrait compléter.", "avatar": "avatar3", "align": "left" },
-        { "text": "On pourrait aussi penser à un coffret de vins.", "avatar": "avatar4", "align": "right" },
+        { "text": "On pourrait aussi penser à un coffret de vins.", "avatar": "avatar4", "align": "left" },
         { "text": "Bonne suggestion, il aime beaucoup déguster.", "avatar": "avatar1", "align": "left" },
-        { "text": "Sinon un petit voyage en Europe, il adore voyager.", "avatar": "avatar5", "align": "right" },
-        { "text": "C’est vrai, mais ça coûte cher aussi.", "avatar": "avatar2", "align": "left" },
-        { "text": "Un kit de golf ? Il en parle souvent.", "avatar": "avatar3", "align": "right" },
+        { "text": "Sinon un petit voyage en Europe, il adore voyager.", "avatar": "avatar5", "align": "left" },
+        { "text": "C’est vrai, mais ça coûte cher aussi.", "avatar": "avatar2", "align": "right" },
+        { "text": "Un kit de golf ? Il en parle souvent.", "avatar": "avatar3", "align": "left" },
         { "text": "Super, ça correspond bien à son futur temps libre.", "avatar": "avatar1", "align": "left" },
-        { "text": "Ou bien une collection de beaux livres, il lit beaucoup.", "avatar": "avatar4", "align": "right" },
-        { "text": "Alors on met tout ça dans la liste, et on vote ?", "avatar": "avatar2", "align": "left" },
-        { "text": "Oui, comme ça on choisira le plus adapté au budget.", "avatar": "avatar5", "align": "right" }
+        { "text": "Ou bien une collection de beaux livres, il lit beaucoup.", "avatar": "avatar4", "align": "left" },
+        { "text": "Alors on met tout ça dans la liste, et on vote ?", "avatar": "avatar2", "align": "right" },
+        { "text": "Oui, comme ça on choisira le plus adapté au budget.", "avatar": "avatar5", "align": "left" }
       ]
     },
     {
@@ -94,25 +94,24 @@
       "fund": 100,
       "wishlist": [
         { "id": 16, "img": "console-jeu", "title": "Manette de console", "description": "Accessoire pour sa PS5", "price": 89.99 },
-        { "id": 17, "img": "casque-gaming", "title": "Casque gaming", "description": "Pour une meilleure immersion", "price": 120.00 },
-        { "id": 18, "img": "abo-jeux", "title": "Abonnement PlayStation Plus", "description": "Accès à des jeux en ligne", "price": 60.00 },
-        { "id": 19, "img": "figurine", "title": "Figurine de collection", "description": "Son héros préféré", "price": 40.00 },
-        { "id": 20, "img": "ecran", "title": "Écran gaming", "description": "Pour une meilleure expérience visuelle", "price": 250.00 }
+        { "id": 17, "img": "casque", "title": "Casque gaming", "description": "Pour une immersion totale", "price": 120.00 },
+        { "id": 18, "img": "jeux-video", "title": "Jeux PS5", "description": "Nouveaux titres pour jouer", "price": 70.00 },
+        { "id": 19, "img": "abo-psplus", "title": "Abonnement PlayStation Plus", "description": "12 mois de jeu en ligne", "price": 60.00 },
+        { "id": 20, "img": "figurine", "title": "Figurine collector", "description": "De son jeu préféré", "price": 80.00 }
       ],
       "messages": [
         { "text": "Un accessoire de jeu ça lui plairait ?", "avatar": "avatar1", "align": "left" },
         { "text": "Carrément, il joue tous les week-ends.", "avatar": "avatar2", "align": "right" },
-        { "text": "Ok, je prends la manette.", "avatar": "avatar1", "align": "left" },
-        { "text": "Sinon un casque gaming ? Il se plaint souvent du sien.", "avatar": "avatar3", "align": "left" },
-        { "text": "Bonne idée, ça lui ferait plaisir.", "avatar": "avatar2", "align": "right" },
-        { "text": "Un abonnement PlayStation Plus, pratique pour jouer avec nous.", "avatar": "avatar4", "align": "left" },
-        { "text": "Oui, ça colle bien à ses habitudes.", "avatar": "avatar1", "align": "right" },
-        { "text": "Et une figurine de son perso préféré ?", "avatar": "avatar3", "align": "left" },
-        { "text": "C’est plus symbolique mais sympa.", "avatar": "avatar2", "align": "right" },
-        { "text": "On peut aussi viser un écran gaming si on a assez de budget.", "avatar": "avatar4", "align": "left" },
-        { "text": "Ça serait énorme, mais c’est cher.", "avatar": "avatar1", "align": "right" },
-        { "text": "Alors on met manette, casque, abo, figurine et écran dans la liste ?", "avatar": "avatar3", "align": "left" },
-        { "text": "Oui, ça donne plusieurs options.", "avatar": "avatar2", "align": "right" }
+        { "text": "Alors une manette en plus ?", "avatar": "avatar3", "align": "left" },
+        { "text": "Bonne idée, mais il a déjà deux manettes.", "avatar": "avatar2", "align": "right" },
+        { "text": "Un casque gaming alors, il adore discuter en ligne.", "avatar": "avatar4", "align": "left" },
+        { "text": "Oui parfait, ça lui servira.", "avatar": "avatar2", "align": "right" },
+        { "text": "On pourrait aussi lui acheter un nouveau jeu.", "avatar": "avatar1", "align": "left" },
+        { "text": "Et pourquoi pas un abonnement PlayStation Plus ?", "avatar": "avatar5", "align": "left" },
+        { "text": "Excellente idée, il pourra jouer avec nous.", "avatar": "avatar2", "align": "right" },
+        { "text": "Une figurine collector ? Il aime collectionner.", "avatar": "avatar3", "align": "left" },
+        { "text": "Ok, ça fait une liste variée, on vote ?", "avatar": "avatar4", "align": "left" },
+        { "text": "Oui, c’est parfait comme ça.", "avatar": "avatar2", "align": "right" }
       ]
     },
     {
@@ -123,24 +122,24 @@
       "fund": 250,
       "wishlist": [
         { "id": 21, "img": "vaisselle-luxe", "title": "Service de vaisselle", "description": "Élégant pour recevoir leurs invités", "price": 400.00 },
-        { "id": 22, "img": "linge-maison", "title": "Linge de maison haut de gamme", "description": "Pour leur nouvel appartement", "price": 200.00 },
-        { "id": 23, "img": "couverts", "title": "Couverts en argent", "description": "Un set raffiné", "price": 350.00 },
-        { "id": 24, "img": "plante", "title": "Plante décorative", "description": "Pour embellir leur salon", "price": 90.00 },
-        { "id": 25, "img": "table-basse", "title": "Table basse design", "description": "Pratique et moderne", "price": 280.00 }
+        { "id": 22, "img": "couverts", "title": "Coffret de couverts argentés", "description": "Pour compléter la vaisselle", "price": 200.00 },
+        { "id": 23, "img": "linge", "title": "Linge de maison", "description": "Nappe et serviettes de qualité", "price": 150.00 },
+        { "id": 24, "img": "art", "title": "Sculpture déco", "description": "Pour leur salon", "price": 300.00 },
+        { "id": 25, "img": "plante", "title": "Plante d’intérieur", "description": "Symbole de croissance et d’amour", "price": 80.00 }
       ],
       "messages": [
         { "text": "Une vaisselle de qualité, ça leur servira longtemps.", "avatar": "avatar1", "align": "left" },
         { "text": "Oui, et ça reste un beau souvenir.", "avatar": "avatar2", "align": "right" },
-        { "text": "Sinon du linge de maison, utile au quotidien.", "avatar": "avatar3", "align": "left" },
-        { "text": "C’est vrai, ils viennent d’aménager.", "avatar": "avatar2", "align": "right" },
-        { "text": "On peut penser à des couverts en argent aussi.", "avatar": "avatar4", "align": "left" },
-        { "text": "Oh oui, c’est classe pour un couple fiancé.", "avatar": "avatar1", "align": "right" },
-        { "text": "Et une belle plante décorative ?", "avatar": "avatar3", "align": "left" },
-        { "text": "Ça donnerait de la vie chez eux.", "avatar": "avatar2", "align": "right" },
-        { "text": "On pourrait aussi envisager une table basse design.", "avatar": "avatar5", "align": "left" },
-        { "text": "Bonne idée, pratique et esthétique.", "avatar": "avatar4", "align": "right" },
-        { "text": "Alors on met vaisselle, linge, couverts, plante et table ?", "avatar": "avatar1", "align": "left" },
-        { "text": "Oui, ça leur laissera un souvenir durable.", "avatar": "avatar2", "align": "right" }
+        { "text": "On peut ajouter des couverts assortis.", "avatar": "avatar3", "align": "left" },
+        { "text": "Bonne idée, ça complète bien.", "avatar": "avatar2", "align": "right" },
+        { "text": "Et du linge de maison élégant ?", "avatar": "avatar4", "align": "left" },
+        { "text": "Parfait, ils recevront souvent.", "avatar": "avatar2", "align": "right" },
+        { "text": "Pourquoi pas une sculpture déco ?", "avatar": "avatar5", "align": "left" },
+        { "text": "Oui, ça fait un souvenir artistique.", "avatar": "avatar2", "align": "right" },
+        { "text": "Ou même une belle plante d’intérieur.", "avatar": "avatar3", "align": "left" },
+        { "text": "Excellente idée, symbole de vie et de couple.", "avatar": "avatar2", "align": "right" },
+        { "text": "Alors vaisselle, couverts, linge, sculpture et plante ?", "avatar": "avatar1", "align": "left" },
+        { "text": "Oui, on a une belle sélection.", "avatar": "avatar2", "align": "right" }
       ]
     },
     {
@@ -151,24 +150,24 @@
       "fund": 200,
       "wishlist": [
         { "id": 26, "img": "poussette", "title": "Poussette", "description": "Pratique pour la future maman", "price": 350.00 },
-        { "id": 27, "img": "lit-bebe", "title": "Lit bébé", "description": "Confortable pour le nouveau-né", "price": 280.00 },
-        { "id": 28, "img": "vetements-bebe", "title": "Vêtements bébé", "description": "Adorables et utiles", "price": 100.00 },
-        { "id": 29, "img": "jouets-bebe", "title": "Coffret de jouets d’éveil", "description": "Pour stimuler son développement", "price": 80.00 },
-        { "id": 30, "img": "chaise-haute", "title": "Chaise haute", "description": "Indispensable pour les repas", "price": 150.00 }
+        { "id": 27, "img": "lit-bebe", "title": "Lit bébé", "description": "Pour les premières nuits", "price": 250.00 },
+        { "id": 28, "img": "vetements", "title": "Vêtements bébé", "description": "Lot de tenues adorables", "price": 100.00 },
+        { "id": 29, "img": "chaise-haute", "title": "Chaise haute", "description": "Pour les repas", "price": 150.00 },
+        { "id": 30, "img": "tapis-eveil", "title": "Tapis d’éveil", "description": "Pour le développement du bébé", "price": 90.00 }
       ],
       "messages": [
         { "text": "On prend une poussette pour Sophie ?", "avatar": "avatar1", "align": "left" },
         { "text": "Oui, c’est super utile avec le bébé qui arrive.", "avatar": "avatar2", "align": "right" },
-        { "text": "Sinon un lit bébé, c’est indispensable.", "avatar": "avatar3", "align": "left" },
-        { "text": "Très bonne idée, ça lui servira dès le début.", "avatar": "avatar2", "align": "right" },
-        { "text": "On peut aussi offrir des vêtements de bébé.", "avatar": "avatar4", "align": "left" },
-        { "text": "Oui, et on peut varier les tailles.", "avatar": "avatar1", "align": "right" },
-        { "text": "Un coffret de jouets d’éveil serait mignon aussi.", "avatar": "avatar5", "align": "left" },
-        { "text": "Oh oui, parfait pour stimuler le petit.", "avatar": "avatar2", "align": "right" },
-        { "text": "Et une chaise haute ? Utile quand le bébé grandira un peu.", "avatar": "avatar3", "align": "left" },
-        { "text": "Excellente idée, ça anticipe ses besoins.", "avatar": "avatar4", "align": "right" },
-        { "text": "Alors on garde poussette, lit, vêtements, jouets et chaise dans la liste ?", "avatar": "avatar1", "align": "left" },
-        { "text": "Oui, ça couvre tous les besoins !", "avatar": "avatar2", "align": "right" }
+        { "text": "Un lit bébé pourrait aussi être utile.", "avatar": "avatar3", "align": "left" },
+        { "text": "Bonne idée, ça reste indispensable.", "avatar": "avatar2", "align": "right" },
+        { "text": "Et quelques vêtements mignons ?", "avatar": "avatar4", "align": "left" },
+        { "text": "Oui, ça plaira beaucoup à Sophie.", "avatar": "avatar2", "align": "right" },
+        { "text": "Pourquoi pas une chaise haute ?", "avatar": "avatar5", "align": "left" },
+        { "text": "Excellente idée pour plus tard.", "avatar": "avatar2", "align": "right" },
+        { "text": "Et un tapis d’éveil ?", "avatar": "avatar1", "align": "left" },
+        { "text": "Parfait, c’est à la fois utile et ludique.", "avatar": "avatar2", "align": "right" },
+        { "text": "Alors poussette, lit, vêtements, chaise et tapis ?", "avatar": "avatar3", "align": "left" },
+        { "text": "Oui, ça fait une belle liste pour Sophie.", "avatar": "avatar2", "align": "right" }
       ]
     },
     {
@@ -190,11 +189,11 @@
         { "text": "Un ampli pourrait compléter aussi.", "avatar": "avatar3", "align": "left" },
         { "text": "Oui, mais peut-être un peu cher.", "avatar": "avatar2", "align": "right" },
         { "text": "On peut aussi lui offrir des cours supplémentaires.", "avatar": "avatar4", "align": "left" },
-        { "text": "Très utile, il sera content de progresser plus vite.", "avatar": "avatar1", "align": "right" },
+        { "text": "Très utile, il sera content de progresser plus vite.", "avatar": "avatar2", "align": "right" },
         { "text": "Et pourquoi pas un kit d’accessoires guitare ?", "avatar": "avatar3", "align": "left" },
         { "text": "Bonne idée, ça sert toujours.", "avatar": "avatar2", "align": "right" },
         { "text": "Une collection de vinyles pourrait lui plaire aussi.", "avatar": "avatar4", "align": "left" },
-        { "text": "C’est vrai, il adore écouter de la musique.", "avatar": "avatar1", "align": "right" },
+        { "text": "C’est vrai, il adore écouter de la musique.", "avatar": "avatar2", "align": "right" },
         { "text": "Alors on met guitare, ampli, cours, kit et vinyles dans la liste ?", "avatar": "avatar3", "align": "left" },
         { "text": "Oui, ça couvre à la fois son apprentissage et sa passion.", "avatar": "avatar2", "align": "right" }
       ]
