@@ -3,9 +3,6 @@
 dev: ## Lance l’application en mode développement séparé
 	docker-compose -f compose.dev.yaml up -d --build
 
-dev-unique: ## Lance l’application en mode développement avec gateway
-	docker-compose -f compose.dev.gateway.yaml up -d --build
-
 stop-all: ##Stoppe tous les conteneurs en cours d'exécution
 	docker stop $$(docker ps -q)
 

@@ -8,6 +8,16 @@
     /* Les images ne dépasseront plus */
 }
 
+.infohome-background-red{
+    position: relative;
+    /* Ajouté -> pour contenir les enfants absolus */
+    background-color: #EA4B09;
+    height: 100dvh;
+    overflow: hidden;
+    z-index: 0;
+    /* Les images ne dépasseront plus */
+}
+
 .infohome-serpentin,
 .infohome-carre,
 .infohome-etoile,
@@ -40,6 +50,7 @@ h1 {
     padding-top: 32px;
 }
 
+
 .infohome-content-text {
     display: flex;
     align-items: center;
@@ -48,6 +59,18 @@ h1 {
     padding-right: 16px;
     padding-top: 32px;
     height: 900px;
+}
+
+.infohome-content-text-home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 32px;
+    height: 900px;
+    text-align: center;
+    margin-bottom: -200px;
 }
 
 .infohome-serpentin {
@@ -108,6 +131,12 @@ h1 {
     padding: 0 20px;
 }
 
+.div-bouton-homepage {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 32px;
+}
 
 .button-black {
     background-color: #200904;
@@ -118,10 +147,27 @@ h1 {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
-    font-size: 20px;
     font-family: 'Inter', sans-serif;
     font-weight: 700;
 }
+
+.size-20px {
+    font-size: 20px;
+}
+
+.button-white {
+    background-color: #FDFBF6;
+    color: #200904;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+}
+
 
 .image-input-button {
   display: inline-block;
@@ -209,4 +255,35 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+
+
+
+
+.button-black-home {
+    background-color: #200904;
+    color: #FDFBF6;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 25px;
+    transition: background-color 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+}
+
+
+.button-white-home {
+    background-color: #FDFBF6;
+    color: #200904;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 25px;
+    transition: background-color 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
 }

@@ -2,9 +2,7 @@
 
 `help` : Affiche la liste des commandes disponibles.
 
-`dev` : Lance docker en mode développement sans gateway.
-
-`dev-unique` : Lance docker en mode développement avec gateway.
+`dev` : Lance docker en mode développement.
 
 `stop-all` : Stoppe tous les conteneurs en cours d'exécution.
 

@@ -7,11 +7,13 @@ import {
     Mutation,
     Query,
     Resolver,
+    UseMiddleware,
 } from "type-graphql";
 import Users from "../entities/Users";
 import argon2 from "argon2";
 import cookieManager from "../lib/cookiManager/cookiManager";
 import { createAndSetToken } from "../utils/jwtUtils";
+import { RoleMiddleware } from "../middleware/RoleMiddleware";
 import type { ContextType } from "../types/context";
 
 @InputType()
@@ -61,7 +63,20 @@ export default class UserResolver {
         return allUsers;
     }
 
-    @Mutation(() => ID)
+    @Query(() => Users)
+    async getMeProfile(@Ctx() ctx: ContextType) {
+        if (!ctx.user) throw new Error("Utilisateur non connecté");
+
+        //récupère le profil de l'utilisateur connecté
+        const user = await Users.findOne({ where: { id: ctx.user.id } });
+
+        // si l'utilisateur a été supprimé (ou inexistant)
+        if (!user) throw new Error("Utilisateur supprimé");
+
+        return user as Users;
+    }
+
+    @Mutation(() => Users)
     async signup(@Arg("data") data: SignupInput, @Ctx() ctx: ContextType) {
         // verifie la validité des données
         const emailRegex = /^(?:[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*|"[^\"]*")@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -88,16 +103,18 @@ export default class UserResolver {
 
         // Crée le token & set le cookie
         const payload = { id: user.id, isAdmin: user.isAdmin };
-        const token = createAndSetToken(ctx, payload);
+        createAndSetToken(ctx, payload);
 
         // return le token;
-        return token;
+        return user;
     }
 
-    @Mutation(() => ID)
+    @Mutation(() => Users)
     async login(@Arg("data") data: LoginInput, @Ctx() ctx: ContextType) {
         // essaye de trouver l'utilisateur grace a son mail
-        const user = await Users.findOneOrFail({ where: { email: data.email } });
+        const user = await Users.findOne({ where: { email: data.email } });
+
+        if (!user) throw new Error("Utilisateur introuvable");
 
         // verifie que le mot de passe est correct (compar le claire avec le hash)
         const isValid = await argon2.verify(user.password_hashed, data.password);
@@ -106,18 +123,18 @@ export default class UserResolver {
 
         // Crée le token & set le cookie
         const payload = { id: user.id, isAdmin: user.isAdmin };
-        const token = createAndSetToken(ctx, payload);
+        createAndSetToken(ctx, payload);
 
         // return le token
-        return token;
+        return user;
     }
 
-    @Mutation(() => ID)
+    @Mutation(() => Boolean)
     async logout(@Ctx() ctx: ContextType) {
         // set le cookie vide pour déconnecter l'utilisateur
-        cookieManager.delCookie(ctx, "token");
+        cookieManager.delCookie(ctx, "token", { secure: false });
 
-        // return un message de confirmation
-        return `Byebye ${ctx.user?.id}`;
+        // return un boolean de succès
+        return true;
     }
 }

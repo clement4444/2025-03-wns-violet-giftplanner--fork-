@@ -89,7 +89,7 @@ const RegisterForm = () => {
                     {/* Bouton de connexion */}
                     <button
                         type="submit"
-                        className="button-black margin-more"
+                        className="button-black margin-more size-20px"
                     >
                         Inscription
                     </button>

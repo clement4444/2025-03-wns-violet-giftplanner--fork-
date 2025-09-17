@@ -67,7 +67,7 @@ describe("UserResolver test unitaire", () => {
             // crée une instance du resolver
             const resolver = new UserResolver();
             // appelle la méthode signup avec des données valides
-            const token = await resolver.signup({
+            const isReussi = await resolver.signup({
                 firstName: "Alice",
                 lastName: "Doe",
                 email: "Alice@gmauil.com",
@@ -75,9 +75,9 @@ describe("UserResolver test unitaire", () => {
                 date_of_birth: "1990-01-01"
             }, { res: { cookie: jest.fn() } } as any);
 
-            // vérifie que le token est une string non vide
-            expect(typeof token).toBe("string");
-            expect(token.length).toBeGreaterThan(0);
+            // vérifie que qu'il a bien un booléen en retour
+            expect(isReussi).toBe(true);
+            expect(typeof isReussi).toBe("boolean");
             // vérifie que la méthode save a été appelée
             expect(saveMock).toHaveBeenCalledTimes(1);
         });

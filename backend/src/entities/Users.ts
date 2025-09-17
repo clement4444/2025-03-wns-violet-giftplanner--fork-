@@ -28,6 +28,7 @@ class Users extends BaseEntity {
     email: string;
 
     @Column()
+    // ne jamais mettre de field pour pas que le mot de passe soit publiquement accessible via GraphQL
     password_hashed: string;
 
     @Column({ nullable: true })

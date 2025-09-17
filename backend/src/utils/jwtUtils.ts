@@ -17,7 +17,7 @@ export function createAndSetToken(ctx: ContextType, payload: UserToken) {
     const token = createToken(payload, "7d");
 
     // set le cookie avec le token
-    cookieManager.setCookie(ctx, "token", token, { maxAge: { d: 7 } });
+    cookieManager.setCookie(ctx, "token", token, { maxAge: { d: 7 }, secure: false, sameSite: "lax" });
 
     return token;
 }
