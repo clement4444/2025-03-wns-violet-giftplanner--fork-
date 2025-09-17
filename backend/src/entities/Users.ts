@@ -60,11 +60,11 @@ class Users extends BaseEntity {
 
     @Column({ default: false })
     @Field()
-    isVerified: boolean;
+    isVerified: boolean = false;
 
     @Column({ default: false })
     @Field()
-    isAdmin: boolean;
-}
+    isAdmin: boolean = false;
+    }
 
 export default Users;

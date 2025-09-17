@@ -1,70 +1,77 @@
 import { useLogoutMutation } from "../generated/graphql-types";
 import { useNavigate } from "react-router";
 import { useMyProfilStore } from "../zustand/myProfilStore";
-import { toast } from "react-toastify"
+import { toast } from "react-toastify";
 import consoleErrorDev from "../hook/erreurMod";
+import "./ProvisoirPage.css"
 
-// cette page est provisoire, elle sera supprimée qaund unification du travail sera faite
-const ProvisoirPage = () => {
-    const [logoutMutation] = useLogoutMutation();
-    const { clearUserProfil, userProfil } = useMyProfilStore();
-    const navigate = useNavigate();
+const ProvisoirePage = () => {
+  const [logoutMutation] = useLogoutMutation();
+  const { clearUserProfil, userProfil } = useMyProfilStore();
+  const navigate = useNavigate();
 
-    const handleLogout = async () => {
-        try {
-            const res = await logoutMutation();
-            if (res.data?.logout) {
-                // on supprime le profil de l'utilisateur dans le store
-                clearUserProfil();
-                // on retourne a la home page
-                navigate("/");
-            } else {
-                toast.error("La déconnexion a échoué");
-            }
-        } catch (err) {
-            toast.error("Erreur pendant le déconnexion");
-            // affiche l'erreur seulement en dev et pas en prod
-            consoleErrorDev("Erreur de déconnexion :", err);
-        }
-    };
+  const handleLogout = async () => {
+    try {
+      const res = await logoutMutation();
+      if (res.data?.logout) {
+        clearUserProfil();
+        navigate("/");
+      } else {
+        toast.error("La déconnexion a échoué");
+      }
+    } catch (err) {
+      toast.error("Erreur lors de la déconnexion");
+      consoleErrorDev("Erreur de déconnexion :", err);
+    }
+  };
 
-    return (
-        <div>
-            <h1 style={{ color: "red" }}>Page Provisoire</h1>
-            <p>Ceci est une page temporaire en attendant l'intégration complète.</p>
-            <p>faudra remplacer tout les /provisoir par le nom de la page principal</p>
-            <p>il a un navigate("/provisoir") dans app.tsx et un dans LoginForm.tsx et dans notFound404Page.tsx</p>
-            <br />
-            <p>ce boutton permet de ce déconncer, normalement on peut garder la logique quand le déplace a un autre endroit</p>
-            <button
-                type="button"
-                onClick={handleLogout}
-                style={{ padding: "10px 20px", backgroundColor: "red", color: "white", border: "none", borderRadius: "5px", cursor: "pointer" }}
-            >
-                Déconnection
-            </button>
-            <br />
-            <br />
-            <br />
-            <p>Exemple des info que le store a sur le user qui pourrait étre utile plus tard (a terme certaine info seron enlever si c'est des info sensible)</p>
-            <p>Connecter avec user :</p>
-            {userProfil &&
-                <div>
-                    <p>id : {userProfil.id}</p>
-                    <p>firstName : {userProfil.firstName}</p>
-                    <p>lastName : {userProfil.lastName}</p>
-                    <p>email : {userProfil.email}</p>
-                    <p>image_url : {userProfil.image_url}</p>
-                    <p>isAdmin : {userProfil.isAdmin}</p>
-                    <p>isVerified : {userProfil.isVerified}</p>
-                    <p>phone_number : {userProfil.phone_number}</p>
-                    <p>date_of_birth : {userProfil.date_of_birth}</p>
-                    <p>createdAt : {userProfil.createdAt}</p>
-                    <p>updatedAt : {userProfil.updatedAt}</p>
-                </div>
-            }
+  return (
+    <div className="page">
+      <header className="header">
+        <h1>🚧 Page Provisoire</h1>
+      </header>
+
+      <main className="content">
+        <div className="card warning">
+          <h2>⚠️ À corriger</h2>
+          <ul>
+            <li> <p>À remplacer par la page principale</p><code>/provisoir</code></li>
+            <li> <p>Vérifier</p> <code>app.tsx</code></li>
+            <li> <p>Vérifier</p> <code>LoginForm.tsx</code></li>
+            <li> <p>Vérifier</p> <code>notFound404Page.tsx</code></li>
+          </ul>
         </div>
-    );
+
+        <div className="card action">
+          <p>
+            Ce bouton permet de se déconnecter. La logique pourra être réutilisée
+            ailleurs.
+          </p>
+          <button className="btn-logout" onClick={handleLogout}>
+            Déconnexion
+          </button>
+        </div>
+
+        {userProfil && (
+          <div className="card profil">
+            <h2>👤 Profil Utilisateur</h2>
+            <div className="profil-grid">
+              <p><span>ID :</span> {userProfil.id}</p>
+              <p><span>Prénom :</span> {userProfil.firstName}</p>
+              <p><span>Nom :</span> {userProfil.lastName}</p>
+              <p><span>Email :</span> {userProfil.email}</p>
+              <p><span>Image :</span> {userProfil.image_url}</p>
+              <p><span>Admin :</span> {userProfil.isAdmin ? "Oui" : "Non"}</p>
+              <p><span>Vérifié :</span> {userProfil.isVerified ? "Oui" : "Non"}</p>
+              <p><span>Date de naissance :</span> {userProfil.date_of_birth}</p>
+              <p><span>Créé le :</span> {userProfil.createdAt}</p>
+              <p><span>Mis à jour le :</span> {userProfil.updatedAt}</p>
+            </div>
+          </div>
+        )}
+      </main>
+    </div>
+  );
 };
 
-export default ProvisoirPage;
+export default ProvisoirePage;

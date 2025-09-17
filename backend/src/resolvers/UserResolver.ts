@@ -19,28 +19,28 @@ import type { ContextType } from "../types/context";
 @InputType()
 class SignupInput {
     @Field()
-    email: string;
+    email!: string;
 
     @Field()
-    password: string;
+    password!: string;
 
     @Field()
-    firstName: string
+    firstName!: string;
 
     @Field()
-    lastName: string
+    lastName!: string
 
     @Field()
-    date_of_birth: string
+    date_of_birth!: string
 }
 
 @InputType()
 class LoginInput {
     @Field()
-    email: string;
+    email!: string;
 
     @Field()
-    password: string;
+    password!: string;
 }
 
 @Resolver(Users)
@@ -78,6 +78,15 @@ export default class UserResolver {
 
     @Mutation(() => Users)
     async signup(@Arg("data") data: SignupInput, @Ctx() ctx: ContextType) {
+        
+        console.log(data);
+
+        if (!data.firstName.trim()) throw new Error("Le prénom est obligatoire");
+        if (!data.lastName.trim()) throw new Error("Le nom est obligatoire");
+        if (!data.date_of_birth.trim()) throw new Error("La date de naissance est obligatoire");
+        if (!data.email.trim()) throw new Error("L'email est obligatoire");
+        if (!data.password.trim()) throw new Error("Le mot de passe est obligatoire");
+
         // verifie la validité des données
         const emailRegex = /^(?:[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*|"[^\"]*")@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
         if (!emailRegex.test(data.email)) {
@@ -105,6 +114,7 @@ export default class UserResolver {
         const payload = { id: user.id, isAdmin: user.isAdmin };
         createAndSetToken(ctx, payload);
 
+        console.log("user crée", user)
         // return le token;
         return user;
     }
