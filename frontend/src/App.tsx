@@ -1,16 +1,14 @@
-import Wishlist from "./components/Wishlist";
-// import { useQuery } from "@apollo/client/react";
+import WishListPage from "./pages/WishListPage";
 
 const App = () => {
     return (
         <>
-            <h1 className="text-3xl font-bold underline" >
+            {/* <h1 className="text-3xl font-bold underline" >
                 Hello world!
             </h1 >
-            <br />
+            <br /> */}
             
-            <Wishlist />
-            
+            <WishListPage />
             
         </>
     );

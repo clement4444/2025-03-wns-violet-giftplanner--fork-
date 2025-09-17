@@ -59,6 +59,57 @@ export default class WishlistResolver {
             createdAt: new Date(),
             updatedAt: new Date(),
         },
+        {
+            id: "6",
+            name: "Kindle Paperwhite",
+            description: "E-reader with adjustable warm light",
+            imageUrl: "https://images.pexels.com/photos/844734/pexels-photo-844734.jpeg?cs=srgb&dl=pexels-ozgur-844734.jpg&fm=jpg",
+            listId: "demo-list",
+            userId: "demo-user",
+            createdAt: new Date(),
+            updatedAt: new Date(),
+            },
+        {
+            id: "7",
+            name: "Hiking backpack",
+            description: "Good quality, durable, water-resistant",
+            imageUrl: "https://images.unsplash.com/photo-1509762774605-f07235a08f1f?fm=jpg",
+            listId: "demo-list",
+            userId: "demo-user",
+            createdAt: new Date(),
+            updatedAt: new Date(),
+        },
+        {
+            id: "8",
+            name: "Fender Acoustic Guitar",
+            description: "Beginner-friendly dreadnought with case",
+            imageUrl: "https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg?cs=srgb&dl=pexels-42north-1407322.jpg",
+            listId: "demo-list",
+            userId: "demo-user",
+            createdAt: new Date(),
+            updatedAt: new Date(),
+        },
+        {
+            id: "9",
+            name: "Front-loading clothes washer",
+            description: "Nice clothes washer",
+            imageUrl: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?fm=jpg",
+            listId: "demo-list",
+            userId: "demo-user",
+            createdAt: new Date(),
+            updatedAt: new Date(),
+        },
+        {
+            id: "10",
+            name: "Apple Watch Series 9",
+            description: "Smartwatch with fitness and health tracking",
+            imageUrl: "https://images.unsplash.com/photo-1517420879524-86d64ac2f339?fm=jpg",
+            listId: "demo-list",
+            userId: "demo-user",
+            createdAt: new Date(),
+            updatedAt: new Date(),
+        },
+
     ];
 
     @Query(() => [WishlistItem])
@@ -66,6 +117,4 @@ export default class WishlistResolver {
         // newest first
         return WishlistResolver.items;
     }
-
-
 }
