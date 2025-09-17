@@ -3,6 +3,7 @@ import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { buildSchema } from "type-graphql";
 import Welcome from "./resolvers/welcome";
+import WishlistResolver from "./resolvers/wishlist";
 import dataSource from "./config/db";
 import dotenv from "dotenv";
 
@@ -14,7 +15,7 @@ async function startServer() {
     // await dataSource.initialize();
 
     const schema = await buildSchema({
-        resolvers: [Welcome],
+        resolvers: [Welcome, WishlistResolver],
     });
 
     const apolloServer = new ApolloServer({ schema });
