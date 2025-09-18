@@ -5,6 +5,7 @@
 .DS_Store
 persit/
 database/
+.vscode/
 
 dist
 

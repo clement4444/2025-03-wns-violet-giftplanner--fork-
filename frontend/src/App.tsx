@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Outlet, Route, Routes, useNavigate } from "react-router";
 import Wishlist from "./components/Wishlist";
 import { useGetMeProfileQuery } from "./generated/graphql-types";
+import Dashboard from "./pages/Dashboard";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import LoadingHomePage from "./pages/loadingHomePage/LoadingHomePage";
@@ -41,6 +42,7 @@ const App = () => {
         <Route path="inscription" element={<RegisterPage />} />
         <Route path="provisoir" element={<ProvisoirPage />} />
         <Route path="wishlist" element={<Wishlist />} />
+        <Route path="dashboard" element={<Dashboard />} />
         <Route path="*" element={<NotFound404Page />} />
       </Route>
     </Routes>
