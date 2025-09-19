@@ -1,7 +1,13 @@
 .env
+.env.* 
+!.env.sample
 **/node_modules/
 .DS_Store
 persit/
 database/
+.vscode/
 
 dist
+
+# pour avoir une liste des tâche a faire qui reste en local
+toodo.md

@@ -1,8 +1,5 @@
-import { Arg, Mutation, Query, Resolver, ID } from "type-graphql";
+import { Query, Resolver, ID } from "type-graphql";
 import { WishlistItem } from "../types/WishlistItem";
-import { AddWishlistItemInput } from "../inputs/AddWishlistItemInput";
-// generating random IDs for wishlist items, temporarily
-import { randomUUID } from "crypto";
 
 @Resolver()
 export default class WishlistResolver {

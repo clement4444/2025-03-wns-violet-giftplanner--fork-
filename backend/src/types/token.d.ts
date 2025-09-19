@@ -1,4 +1,4 @@
 export type UserToken = {
-    id: number;
-    isAdmin: boolean;
+  id: number;
+  isAdmin: boolean;
 };

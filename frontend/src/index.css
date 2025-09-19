@@ -23,47 +23,23 @@
 } */
 
 /* Firefox */
-* {
-  /* scrollbar-width: thin; */
-}
+/* * {
+  scrollbar-width: thin;
+} */
 
 
-@theme {
+/* @theme {
   --color-blue: #292E96;
   --color-white: #FDFBF6;
   --color-green: #019645;
-}
+} */
 
-@layer utilities {
-  .font-default {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    /* Regular /
-  }
-
-  .font-extra-bold { 
-    font-family: 'Inter', sans-serif;
-    font-weight: 800; / ExtraBold /
-  }
-
-  .font-poppins {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400; / Regular /
-  }
-
-  .font-poppins-extre-bold {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 800; / ExtraBold */
-  }
-
-}
-
-.default-background {
+/* .default-background {
   background-color: #FDFBF6;
-  /* Couleur de fond par défaut */
-}
+  Couleur de fond par défaut
+} */
 
-@layer base {
+/* @layer base {
 
   *,
   *::before,
@@ -72,14 +48,62 @@
     margin: 0;
     box-sizing: border-box;
   }
+} */
 
-  /* For Firefox. */
-  * {
-    scrollbar-width: none;
+
+/* If a colour does not work, hardcode it first */
+@theme inline {
+  --color-blue: #292E96;
+  --color-white: #FDFBF6;
+  --color-orange: #EA4B09;
+  --color-green: #019645;
+  --color-yellow: #FFC300;
+  --color-light-grey: #F0F0F0;
+  --color-grey: #E6E6E6;
+  --color-dark: #200904
+}
+
+
+@layer utilities {
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    /* Regular */
   }
 
-  /* For WebKit (Chrome & Safari). */
-  ::-webkit-scrollbar {
-    display: none;
+  .font-inter-extra-bold {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    /* ExtraBold */
   }
+
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    /* Regular */
+  }
+
+  .font-poppins-extre-bold {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    /* ExtraBold */
+  }
+
+}
+
+/* Works for webkit browsers */
+::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-light-grey rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-grey rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-grey;
 }
