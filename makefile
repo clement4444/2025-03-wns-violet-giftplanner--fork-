@@ -1,7 +1,7 @@
 .PHONY: dev clean
 
 dev: ## Lance l’application en mode développement séparé
-	docker-compose -f compose.dev.yaml up -d --build
+	docker compose -f compose.dev.yaml up -d --build
 
 stop-all: ##Stoppe tous les conteneurs en cours d'exécution
 	docker stop $$(docker ps -q)

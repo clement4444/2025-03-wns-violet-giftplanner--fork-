@@ -8,7 +8,7 @@ import HomePage from "./pages/HomePage";
 import LoadingHomePage from "./pages/loadingHomePage/LoadingHomePage";
 import NotFound404Page from "./pages/notFound404Page/NotFound404Page";
 import ProvisoirPage from "./pages/ProvisoirPage";
-import Wishlist from "./components/Wishlist";
+import WishListPage from "./pages/WishListPage";
 
 
 const App = () => {
@@ -41,7 +41,7 @@ const App = () => {
         <Route path="connexion" element={<LoginPage />} />
         <Route path="inscription" element={<RegisterPage />} />
         <Route path="provisoir" element={<ProvisoirPage />} />
-        <Route path="wishlist" element={<Wishlist />} />
+        <Route path="wishlist" element={<WishListPage />} />
         <Route path="*" element={<NotFound404Page />} />
       </Route>
     </Routes>
