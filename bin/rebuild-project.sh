@@ -1,4 +1,14 @@
+#!/bin/bash
 echo "🚀 Reconstruction complète du projet..."
-# bash ./clean-node-modules.sh
-# bash ./install-node-modules.sh
+
+echo ""
+
+./clean-node-modules.sh no-finish
+
+echo ""
+
+./install-node-modules.sh no-finish
+
+echo ""
+
 echo "🎉 Projet reconstruit avec succès."
