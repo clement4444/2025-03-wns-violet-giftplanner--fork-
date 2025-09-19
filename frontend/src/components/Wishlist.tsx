@@ -1,9 +1,10 @@
 import { useWishlistItemsQuery } from "../generated/graphql";
+import LoadingHomePage from "../pages/loadingHomePage/LoadingHomePage";
 
 export default function Wishlist() {
   const { data, loading, error } = useWishlistItemsQuery();
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return  <LoadingHomePage />;
   if (error) return <div>Oops: {error.message}</div>;
 
   interface WishlistItem {
