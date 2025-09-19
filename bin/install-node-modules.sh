@@ -1,0 +1,1 @@
+echo "📦 Installation des dépendances dans chaque projet..."

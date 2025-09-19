@@ -1,4 +1,4 @@
-import style from "./LoadingHomePage.module.css";
+import style from "./loadingHomePage.module.css";
 
 const LoadingHomePage = () => {
   return (

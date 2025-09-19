@@ -1,5 +1,5 @@
-import { FiPlusCircle } from "react-icons/fi";
 import { FaArrowCircleRight, FaRegHeart } from "react-icons/fa";
+import { FiPlusCircle } from "react-icons/fi";
 import { HiDotsVertical, HiOutlineCurrencyDollar } from "react-icons/hi";
 
 export type IconProps = {
