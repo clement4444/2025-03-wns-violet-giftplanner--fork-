@@ -1,5 +1,5 @@
 import type React from "react";
-import Title from "./Title"
+import Title from "./Title";
 
 type ContainerProps = {
   colour: "blue" | "green" | "red" | "orange" | "yellow";
@@ -10,7 +10,8 @@ type ContainerProps = {
 
 export default function Container({ colour, title, button, children }: ContainerProps) {
   return (
-    <div className={`bg-${colour} py-4 pb-8 px-8 rounded-2xl w-[40vw] aspect-[415/300] max-w-[450px] flex flex-col`}
+    <div
+      className={`bg-${colour} py-4 pb-8 px-8 rounded-2xl w-[40vw] aspect-[415/300] max-w-[450px] flex flex-col`}
     >
       {/* Header */}
       <div className="flex justify-between items-center pb-4">

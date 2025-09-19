@@ -20,5 +20,4 @@ export type GroupProps = {
   fund: number;
   wishlist: WishlistItemProps[];
   messages: MessageProps[];
-  
 };

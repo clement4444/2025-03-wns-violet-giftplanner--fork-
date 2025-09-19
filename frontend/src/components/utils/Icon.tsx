@@ -1,8 +1,6 @@
-import { HiDotsVertical } from "react-icons/hi";
 import { CiCirclePlus } from "react-icons/ci";
-import { FaRegHeart } from "react-icons/fa";
-import { HiOutlineCurrencyDollar } from "react-icons/hi";
-import { FaArrowCircleRight } from "react-icons/fa";
+import { FaArrowCircleRight, FaRegHeart } from "react-icons/fa";
+import { HiDotsVertical, HiOutlineCurrencyDollar } from "react-icons/hi";
 
 export type IconProps = {
   icon: "dots" | "plus" | "heart" | "dollar" | "arrow";
@@ -15,7 +13,7 @@ const iconMap = {
   plus: CiCirclePlus,
   heart: FaRegHeart,
   dollar: HiOutlineCurrencyDollar,
-  arrow: FaArrowCircleRight
+  arrow: FaArrowCircleRight,
 };
 
 export default function Icon({ icon, text, className }: IconProps) {

@@ -8,42 +8,18 @@
   box-sizing: border-box;
 } */
 
-@theme {
+/* @theme {
   --color-blue: #292E96;
   --color-white: #FDFBF6;
   --color-green: #019645;
-}
+} */
 
-@layer utilities {
-  .font-default {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    /* Regular /
-  }
-
-  .font-extra-bold { 
-    font-family: 'Inter', sans-serif;
-    font-weight: 800; / ExtraBold /
-  }
-
-  .font-poppins {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400; / Regular /
-  }
-
-  .font-poppins-extre-bold {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 800; / ExtraBold */
-  }
-
-}
-
-.default-background {
+/* .default-background {
   background-color: #FDFBF6;
-  /* Couleur de fond par défaut */
-}
+  Couleur de fond par défaut
+} */
 
-@layer base {
+/* @layer base {
 
   *,
   *::before,
@@ -51,7 +27,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
+  }
+} */
 
 
 /* If a colour does not work, hardcode it first */
@@ -70,27 +47,31 @@
 @layer utilities {
   .font-inter {
     font-family: 'Inter', sans-serif;
-    font-weight: 400; /* Regular */
+    font-weight: 400;
+    /* Regular */
   }
 
-  .font-inter-extra-bold { 
+  .font-inter-extra-bold {
     font-family: 'Inter', sans-serif;
-    font-weight: 800; /* ExtraBold */
+    font-weight: 800;
+    /* ExtraBold */
   }
 
   .font-poppins {
     font-family: 'Poppins', sans-serif;
-    font-weight: 400; /* Regular */
+    font-weight: 400;
+    /* Regular */
   }
 
   .font-poppins-extre-bold {
     font-family: 'Poppins', sans-serif;
-    font-weight: 800; /* ExtraBold */
+    font-weight: 800;
+    /* ExtraBold */
   }
 
 }
 
-  /* Works for webkit browsers */
+/* Works for webkit browsers */
 ::-webkit-scrollbar {
   @apply w-2 h-2;
 }
