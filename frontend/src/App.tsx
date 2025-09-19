@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Outlet, Route, Routes, useNavigate } from "react-router";
+import { Outlet, Route, Routes, Navigate, useNavigate } from "react-router";
 import Wishlist from "./components/Wishlist";
 import { useGetMeProfileQuery } from "./generated/graphql-types";
 import Dashboard from "./pages/Dashboard";
@@ -10,6 +10,7 @@ import NotFound404Page from "./pages/notFound404Page/NotFound404Page";
 import ProvisoirPage from "./pages/ProvisoirPage";
 import RegisterPage from "./pages/RegisterPage";
 import { useMyProfilStore } from "./zustand/myProfilStore";
+import Conversations from "./pages/Conversations";
 
 const App = () => {
   const { data, loading } = useGetMeProfileQuery();
@@ -21,7 +22,7 @@ const App = () => {
       setUserProfil(data.getMeProfile);
       // si on était sur une page que on est pas censé étre une foie connecté on redirige vers la page principale
       if (["/", "/connexion", "/inscription"].includes(window.location.pathname)) {
-        navigate("/provisoir");
+        navigate("/dashboard");
       }
     } else if (!loading) {
       setUserProfil(null);
@@ -41,12 +42,19 @@ const App = () => {
         <Route path="connexion" element={<LoginPage />} />
         <Route path="inscription" element={<RegisterPage />} />
         <Route path="provisoir" element={<ProvisoirPage />} />
-        <Route path="wishlist" element={<Wishlist />} />
-        <Route path="dashboard" element={<Dashboard />} />
+
+        {/* Dashboard with nested routes */}
+        <Route path="dashboard" element={<Dashboard />}>
+          <Route index element={<Navigate to="conversations" replace />} />
+          <Route path="conversations" element={<Conversations />} />
+          <Route path="wishlist" element={<Wishlist />} />
+        </Route>
+
         <Route path="*" element={<NotFound404Page />} />
       </Route>
     </Routes>
   );
-};
+}
+
 
 export default App;
