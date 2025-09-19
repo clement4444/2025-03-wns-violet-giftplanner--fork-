@@ -27,7 +27,7 @@ const LoginForm = () => {
         // on met a jour le profil dans le store
         setUserProfil(res.data.login);
         // rediriger vers la page d'accueil
-        navigate("/provisoir");
+        navigate("/dashboard");
       }
     } catch (err: any) {
       // si c'est une erreur GraphQL
