@@ -15,6 +15,8 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+console.log("client", client);
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
