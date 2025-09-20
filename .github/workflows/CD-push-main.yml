@@ -1,0 +1,61 @@
+name: Buile le code, build et push l'image docker sur DockerHub
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code source
+        uses: actions/checkout@v4
+      - name: Se connecter à DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
+      - name: Build et push l'image Docker
+        uses: docker/build-push-action@v4
+        with:
+          context: ./frontend
+          file: ./frontend/Dockerfile.prod
+          push: true
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/${{ vars.IMAGE_FRONTEND_PRODUCTION }}:latest
+    
+  build-and-push-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code source
+        uses: actions/checkout@v4
+      - name: Se connecter à DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
+      - name: Build et push l'image Docker
+        uses: docker/build-push-action@v4
+        with:
+          context: ./backend
+          file: ./backend/Dockerfile.prod
+          push: true
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/${{ vars.IMAGE_BACKEND_PRODUCTION }}:latest
+    
+  build-and-push-gateway:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code source
+        uses: actions/checkout@v4
+      - name: Se connecter à DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
+      - name: Build et push l'image Docker
+        uses: docker/build-push-action@v4
+        with:
+          context: ./gateway
+          file: ./gateway/Dockerfile.prod
+          push: true
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/${{ vars.IMAGE_GATEWAY_PRODUCTION }}:latest

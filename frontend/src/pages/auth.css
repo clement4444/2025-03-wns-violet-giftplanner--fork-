@@ -1,0 +1,285 @@
+.infohome-background {
+  position: relative;
+  /* Ajouté -> pour contenir les enfants absolus */
+  background-color: #292e96;
+  height: 100dvh;
+  overflow: hidden;
+  z-index: 0;
+  /* Les images ne dépasseront plus */
+}
+
+.infohome-background-red {
+  position: relative;
+  /* Ajouté -> pour contenir les enfants absolus */
+  background-color: #ea4b09;
+  height: 100dvh;
+  overflow: hidden;
+  z-index: 0;
+  /* Les images ne dépasseront plus */
+}
+
+.infohome-serpentin,
+.infohome-carre,
+.infohome-etoile,
+.infohome-cotillon {
+  position: absolute;
+  z-index: -1;
+  /* Met les images derrière le texte */
+}
+
+.infohome-logo {
+  width: 200px;
+  padding-left: 16px;
+  padding-top: 16px;
+}
+
+h1 {
+  font-size: 90px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  color: #fdfbf6;
+  line-height: 80px;
+  margin-top: 0;
+}
+
+.infohome-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 108px;
+  padding-right: 108px;
+  height: 100%;
+  justify-content: center;
+  gap: 104px;
+}
+
+.infohome-content-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.infohome-content-text-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.infohome-serpentin {
+  width: 600px;
+  top: 10px;
+}
+
+.infohome-carre {
+  width: 200px;
+  top: 200px;
+  right: 20px;
+}
+
+.infohome-etoile {
+  width: 300px;
+  top: 800px;
+}
+
+.infohome-cotillon {
+  width: 600px;
+  top: 700px;
+  right: 20px;
+}
+
+.h2-login {
+  font-size: 50px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  color: #200904;
+  margin-top: 240px;
+}
+
+.h2-register {
+  font-size: 50px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  color: #200904;
+  margin-top: 94px;
+  margin-bottom: 80px;
+}
+
+.form-login-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100vh;
+  padding: 0 20px;
+}
+
+.form-register-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  padding: 0 20px;
+}
+
+.div-bouton-homepage {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 32px;
+}
+
+.button-black {
+  background-color: #200904;
+  color: #fdfbf6;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+}
+
+.size-20px {
+  font-size: 20px;
+}
+
+.button-white {
+  background-color: #fdfbf6;
+  color: #200904;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+}
+
+.image-input-button {
+  display: inline-block;
+  width: 400px;
+  background-color: #200904;
+  /* noir par défaut */
+  color: #fdfbf6;
+  text-align: center;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+  overflow: hidden;
+  /* cache le texte qui dépasse */
+  white-space: nowrap;
+  /* empêche le retour à la ligne */
+}
+
+.image-input-button-filled {
+  background-color: #292e96;
+  /* bleu si un fichier est choisi */
+}
+
+.file-label-text {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* ajoute "..." si trop long */
+}
+
+.paragraph-login {
+  font-size: 20px;
+  color: #200904;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+}
+
+.link-login {
+  color: #200904;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.input-custom {
+  width: 400px;
+  padding: 8px 8px;
+  /* équivalent px-5 py-4 */
+  border: 3.5px solid #200904;
+  /* grosses bordures noires */
+  border-radius: 8px;
+  /* coins arrondis */
+  font-weight: bold;
+  /* texte gras */
+  font-size: 1.125rem;
+  /* ~ text-lg */
+  color: #200904;
+  /* texte noir par défaut */
+  outline: none;
+  margin-bottom: 24px;
+}
+
+/* Placeholder gris */
+.input-custom::placeholder {
+  color: #9ca3af;
+  /* gris Tailwind 400 */
+}
+
+/* Texte et style au focus */
+.input-custom:focus {
+  color: #200904;
+  border-color: #292e96;
+  /* bleu Tailwind 500 */
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.5);
+  /* anneau bleu */
+}
+
+.margin-more {
+  margin-bottom: 80px;
+}
+
+.form-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-black-home {
+  background-color: #200904;
+  color: #fdfbf6;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 25px;
+  transition: background-color 0.3s ease;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+}
+
+.button-white-home {
+  background-color: #fdfbf6;
+  color: #200904;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 25px;
+  transition: background-color 0.3s ease;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+}
+
+.error-message {
+  color: #ea4b09;
+  font-weight: bold;
+  margin-bottom: 24px;
+  font-size: 18px;
+}
