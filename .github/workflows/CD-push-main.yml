@@ -59,3 +59,11 @@ jobs:
           file: ./gateway/Dockerfile.prod
           push: true
           tags: ${{ vars.DOCKERHUB_USERNAME }}/${{ vars.IMAGE_GATEWAY_PRODUCTION }}:latest
+  
+  serveur-deploy:
+    needs: [build-and-push-frontend, build-and-push-backend, build-and-push-gateway]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Déployer sur le serveur distant
+        run: curl ${{ vars.SERVER_WEBHOOK_URL }}
+        
