@@ -3,11 +3,11 @@ echo "🚀 Reconstruction complète du projet..."
 
 echo ""
 
-./clean-node-modules.sh no-finish
+./bin/clean-node-modules.sh no-finish
 
 echo ""
 
-./install-node-modules.sh no-finish
+./bin/install-node-modules.sh no-finish
 
 echo ""
 

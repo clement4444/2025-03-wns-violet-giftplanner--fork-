@@ -1,4 +1,5 @@
 # npm run husky-lint
+. "$(dirname "$0")/_/husky.sh"
 
 # si le paramètre bypass-bin est pas actif
 if ! echo "$@" | grep -qE "(--bypass-bin)"; then

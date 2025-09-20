@@ -1,5 +1,4 @@
 #!/bin/bash
-cd ..
 ROOT_DIR=$(pwd)
 
 echo "🧹 Suppression de tous les node_modules..."

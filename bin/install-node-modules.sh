@@ -1,5 +1,4 @@
 #!/bin/bash
-cd ..
 ROOT_DIR=$(pwd)
 
 if [ -d "$ROOT_DIR/frontend" ] && [ -d "$ROOT_DIR/backend" ]; then
