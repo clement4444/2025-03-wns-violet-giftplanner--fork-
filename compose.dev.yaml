@@ -2,7 +2,9 @@ services:
   frontend:
     container_name: frontend-dev
     restart: always
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
     volumes:
       - ./frontend/src/:/app/src/
     healthcheck:
@@ -22,7 +24,9 @@ services:
   backend:
     container_name: backend-dev
     restart: always
-    build: ./backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
     volumes:
       - ./backend/src/:/app/src/
       - ./backend/public/:/app/public/
@@ -64,7 +68,9 @@ services:
   gateway:
     container_name: gateway-dev
     restart: always
-    build: ./gateway
+    build:
+      context: ./gateway
+      dockerfile: Dockerfile.dev
     ports:
       - ${GATEWAY_PORT}:80
 

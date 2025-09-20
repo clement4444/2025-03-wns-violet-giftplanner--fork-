@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "npm run codegen && vite --host",
+    "start": "node ./dist/index.js",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
