@@ -6,12 +6,7 @@ COPY *.ts .
 COPY index.html .
 COPY public public 
 COPY src src
-ARG VITE_API_URL
-ARG VITE_API_URL_DOCKER
-ARG VITE_MODE
-RUN echo "VITE_API_URL=$SERVEUR_URL" > .env \
-    && echo "VITE_API_URL_DOCKER=$SERVEUR_URL_DOCKER" >> .env \
-    && echo "VITE_MODE=$MODE" >> .env
+RUN echo "VITE_MODE=prod" >> .env
 RUN npm run build
 
 FROM httpd:2.4-alpine
