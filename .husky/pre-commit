@@ -1,8 +1,7 @@
 # npm run husky-lint
-. "$(dirname "$0")/_/husky.sh"
 
 # si le paramètre bypass-bin est pas actif
-if ! echo "$@" | grep -qE "(--bypass-bin)"; then
+if [ ! "$bypass_bin" = "1"]; then
     # Bloquer toute modification du dossier bin/
     if git diff --cached --name-only | grep -q "^bin/"; then
         echo ""
