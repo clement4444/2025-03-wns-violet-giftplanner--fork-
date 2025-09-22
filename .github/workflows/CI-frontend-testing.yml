@@ -1,3 +1,14 @@
+name: Empty Workflow
+
+on: push
+
+jobs:
+  noop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: No operation
+        run: echo "Ce workflow est vide volontairement"
+
 # name: tests-frontend
 
 # on: push

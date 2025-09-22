@@ -3,7 +3,7 @@ name: Buile le code, build et push l'image docker sur DockerHub pour la staging
 on:
   push:
     branches:
-      - main
+      - staging
 
 jobs:
   build-and-push-projets:
