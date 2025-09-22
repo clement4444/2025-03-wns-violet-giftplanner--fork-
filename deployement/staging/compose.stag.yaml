@@ -1,0 +1,68 @@
+services:
+  frontend:
+    container_name: frontend-staging
+    restart: always
+    image: ${FRONTEND_IMAGE}
+    healthcheck:
+      test: [ "CMD-SHELL", "curl --fail --request GET --url 'http://localhost:80' || exit 1" ]
+      interval: 10s
+      retries: 5
+      start_period: 20s
+    depends_on:
+      backend:
+        condition: service_healthy
+    environment:
+      VITE_MODE: prod
+      CHOKIDAR_USEPOLLING: true
+
+  backend:
+    container_name: backend-staging
+    restart: always
+    image: ${BACKEND_IMAGE}
+    volumes:
+      - ./backend/public/:/app/public/
+    depends_on:
+      database:
+        condition: service_healthy
+    healthcheck:
+      test: [ "CMD-SHELL", 'curl --fail --request POST --header ''Content-Type: application/json'' --url ''http://localhost:${SERVEUR_PORT}'' --data ''{"query":"query { __typename }"}'' || exit 1' ]
+      interval: 10s
+      retries: 5
+      start_period: 20s
+    environment:
+      NODE_ENV: production
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_DATABASE: ${DB_DATABASE}
+      DB_USER: ${DB_USER}
+      DB_HOST: ${DB_HOST}
+      JWT_SECRET: ${JWT_SECRET}
+      SERVEUR_PORT: ${SERVEUR_PORT}
+      MODE: prod
+
+  database:
+    container_name: database-staging
+    restart: always
+    image: postgres
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d ${DB_DATABASE} -U ${DB_USER}" ]
+      interval: 10s
+      retries: 5
+      start_period: 20s
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_USER: ${DB_USER}
+    volumes:
+      - ./persist/database:/var/lib/postgresql/data
+
+  gateway:
+    container_name: gateway-staging
+    restart: always
+    image: ${GATEWAY_IMAGE}
+    ports:
+      - ${GATEWAY_PORT}:80
+    depends_on:
+      frontend:
+        condition: service_healthy
+      backend:
+        condition: service_healthy

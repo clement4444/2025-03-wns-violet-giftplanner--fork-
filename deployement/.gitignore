@@ -1,2 +1,2 @@
-.env.serveur
-!.env.serveur.sample
+.env.*
+!.env.*.sample

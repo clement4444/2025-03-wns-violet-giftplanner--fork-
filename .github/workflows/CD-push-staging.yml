@@ -1,4 +1,4 @@
-name: Buile le code, build et push l'image docker sur DockerHub pour la production
+name: Buile le code, build et push l'image docker sur DockerHub pour la staging
 
 on:
   push:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        nom_image: ["${{ vars.IMAGE_FRONTEND_PRODUCTION }}", "${{ vars.IMAGE_BACKEND_PRODUCTION }}", "${{ vars.IMAGE_GATEWAY_PRODUCTION }}"]
+        nom_image: ["${{ vars.IMAGE_FRONTEND_STAGING }}", "${{ vars.IMAGE_BACKEND_STAGING }}", "${{ vars.IMAGE_GATEWAY_STAGING }}"]
         nom_service: [frontend, backend, gateway]
     steps:
       - name: Récupérer le code source
@@ -33,5 +33,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Déployer sur le serveur distant
-        run: curl -f ${{ vars.SERVER_WEBHOOK_URL_PRODUCTION }}
+        run: curl -f ${{ vars.SERVER_WEBHOOK_URL_STAGING }}
         
