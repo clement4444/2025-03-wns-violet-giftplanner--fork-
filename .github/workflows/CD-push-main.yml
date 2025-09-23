@@ -10,8 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        nom_image: ["${{ vars.IMAGE_FRONTEND_PRODUCTION }}", "${{ vars.IMAGE_BACKEND_PRODUCTION }}", "${{ vars.IMAGE_GATEWAY_PRODUCTION }}"]
-        nom_service: [frontend, backend, gateway]
+        include:
+          - nom_service: frontend
+            nom_image: ${{ vars.IMAGE_FRONTEND_PRODUCTION }}
+          - nom_service: backend
+            nom_image: ${{ vars.IMAGE_BACKEND_PRODUCTION }}
+          - nom_service: gateway
+            nom_image: ${{ vars.IMAGE_GATEWAY_PRODUCTION }}
     steps:
       - name: Récupérer le code source
         uses: actions/checkout@v4
