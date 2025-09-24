@@ -8,7 +8,7 @@ const HomePage = () => {
       <img className="infohome-cotillon" src="/images/cotillon-bleu.png" alt="Cotillon rouge" />
       <div className="infohome-content">
         <h1 className="infohome-content-text-home">
-          Le site magique pour ne plus se prendre la tête pour les cadeaux communs.
+          Le site magique pour ne plus se prendre la tête pour les cadeaux communs. V0.0
         </h1>
 
         <div className="div-bouton-homepage">
