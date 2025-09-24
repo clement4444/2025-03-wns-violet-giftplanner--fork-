@@ -20,7 +20,7 @@ services:
     restart: always
     image: ${BACKEND_IMAGE}
     volumes:
-      - ./backend/public/:/app/public/
+      - ./persist/backend/public/:/app/public/
     depends_on:
       database:
         condition: service_healthy
