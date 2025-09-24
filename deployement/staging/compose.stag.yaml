@@ -1,6 +1,6 @@
 services:
   frontend:
-    container_name: frontend-production
+    container_name: frontend-staging
     restart: always
     image: ${FRONTEND_IMAGE}
     healthcheck:
@@ -16,11 +16,11 @@ services:
       CHOKIDAR_USEPOLLING: true
 
   backend:
-    container_name: backend-production
+    container_name: backend-staging
     restart: always
     image: ${BACKEND_IMAGE}
     volumes:
-      - ./backend/public/:/app/public/
+      - ./persist/backend/public/:/app/public/
     depends_on:
       database:
         condition: service_healthy
@@ -40,7 +40,7 @@ services:
       MODE: prod
 
   database:
-    container_name: database-production
+    container_name: database-staging
     restart: always
     image: postgres
     healthcheck:
@@ -56,7 +56,7 @@ services:
       - ./persist/database:/var/lib/postgresql/data
 
   gateway:
-    container_name: gateway-production
+    container_name: gateway-staging
     restart: always
     image: ${GATEWAY_IMAGE}
     ports:

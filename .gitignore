@@ -1,6 +1,8 @@
 .env
 .env.* 
 !.env.sample
+# pour que tout le group est un projet fonctionnel sans config
+!.env.dev
 **/node_modules/
 .DS_Store
 persit/
