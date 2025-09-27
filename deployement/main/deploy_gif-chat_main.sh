@@ -4,9 +4,11 @@
 # Si le script crash on s'arrête
 set -e
 
+mkdir -p log
+
 # Fonction pour logger avec timestamp
 log() {
-  echo "$(date '+%Y-%m-%d %H:%M:%S') $1" >> deploy_main.log
+  echo "$(date '+%Y-%m-%d %H:%M:%S') $1" >> log/eploy_main.log
 }
 
 log "script lancé"
