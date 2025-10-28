@@ -1,0 +1,65 @@
+# The Caddyfile is an easy way to configure your Caddy web server.
+#
+# Unless the file starts with a global options block, the first
+# uncommented line is always the address of your site.
+#
+# To use your own domain name (with automatic HTTPS), first make
+# sure your domain's A/AAAA DNS records are properly pointed to
+# this machine's public IP, then replace ":80" below with your
+# domain name.
+
+# page de caddy
+032025-bleu-2.wns.wilders.dev {
+        # Set this path to your site's directory.
+        root * /usr/share/caddy
+
+        # Enable the static file server.
+        file_server
+
+        # Another common task is to set up a reverse proxy:
+        # reverse_proxy localhost:8080
+
+        # Or serve a PHP site through php-fpm:
+        # php_fastcgi localhost:9000
+        # log
+        log {
+            output file /var/log/caddy/homeCaddy.log
+        }
+}
+
+# notification webhook
+ops.032025-bleu-2.wns.wilders.dev {
+        reverse_proxy localhost:9000
+        # log
+        log {
+            output file /var/log/caddy/ops.log
+        }
+}
+
+# prodution main du projet principal
+#gifchat.032025-bleu-2.wns.wilders.dev {
+#       reverse_proxy localhost:3010
+#}
+
+# prodution staging du projet principal
+#staging.gifchat.032025-bleu-2.wns.wilders.dev {
+#        reverse_proxy localhost:3010
+#}
+
+# prodution main du fork
+gifchat-fork.032025-bleu-2.wns.wilders.dev {
+        reverse_proxy localhost:3000
+}
+
+# prodution staging du fork
+staging.gifchat-fork.032025-bleu-2.wns.wilders.dev {
+        reverse_proxy localhost:3001
+        log {
+            output file /home/wns_student/apps/gifChat-fork/prodution_staging/log/caddy/caddy_access.log {
+                roll_size 10mb
+                roll_keep 5
+                roll_keep_for 720h
+            }
+            format console
+        }
+}
